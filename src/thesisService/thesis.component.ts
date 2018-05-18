@@ -16,10 +16,6 @@ export class ThesisComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    const td = document.createElement('tr');
-    td.setAttribute('th', 'test');
-    const table = document.getElementById('thesisTable');
-    table.appendChild(td);
   }
 
 }
