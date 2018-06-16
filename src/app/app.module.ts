@@ -4,15 +4,19 @@ import { FormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ThesisComponent } from '../thesisService/thesis.component';
+import { FilterComponent } from '../filterService/filter.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ThesisComponent
+    ThesisComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

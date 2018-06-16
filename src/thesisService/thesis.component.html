@@ -1,12 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
 <table id="thesisTable">
   <tr>
     <th>Topic</th>
     <th>Author</th>
     <th>Open</th>
   </tr>
-  <tr>
+   <tr *ngFor="let thesis of thesesList">
     <td>{{thesis.topic}}</td>
     <td>{{thesis.author}}</td>
     <td><a href="{{thesis.link}}">{{thesis.link}}</a></td>
   </tr>
 </table>
+</body>
+</html>
