@@ -1,6 +1,6 @@
 export class Thesis {
   id: number;
-  topic: string;
+  title: string;
   author: string;
   link: string;
 }

@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html>
 <body>
-<button id="buttonTest">Load Theses</button>
-<table id="thesisTable">
-  <tr>
-    <th>Topic</th>
-    <th>Author</th>
-    <th>Open</th>
-  </tr>
-   <tr *ngFor="let thesis of theses">
-    <td id="title">{{thesis.topic}}</td>
-    <td id="author">{{thesis.author}}</td>
-    <td id="link"><a href="{{thesis.link}}">{{thesis.link}}</a></td>
-  </tr>
-</table>
+  <div class="buttons">
+    <button id="buttonLoadTheses">Load Theses</button>
+    <button id="buttonGetByAuthor">Search By Author</button>
+    <button id="buttonGetByTitle">Search By Title</button>
+  </div>
+  <table id="thesisTable">
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Open</th>
+    </tr>
+     <tr *ngFor="let thesis of theses">
+      <td id="title">{{thesis.title}}</td>
+      <td id="author">{{thesis.author}}</td>
+      <td id="link"><a href="{{thesis.link}}">{{thesis.link}}</a></td>
+    </tr>
+  </table>
 </body>
 </html>

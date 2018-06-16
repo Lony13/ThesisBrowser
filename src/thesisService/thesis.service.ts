@@ -15,6 +15,8 @@ const httpOptions = {
 export class ThesisService {
 
   private thesesUrl = 'api/theses';
+  private authorUrl = 'http://localhost:8080/api/theses/author';
+  private titleUrl = 'http://localhost:8080/api/theses/title';
 
   constructor(
     private http: HttpClient) { }
@@ -22,6 +24,22 @@ export class ThesisService {
   /** GET theses from the server */
   getTheses (): Observable<Thesis[]> {
     return this.http.get<Thesis[]>('http://localhost:8080/api/theses')
+      .pipe(
+        catchError(this.handleError('getTheses', []))
+      );
+  }
+
+  getThesesByAuthor (author: string): Observable<Thesis[]> {
+    const url = `${this.authorUrl}/?author=${author}`;
+    return this.http.get<Thesis[]>(url)
+      .pipe(
+        catchError(this.handleError('getTheses', []))
+      );
+  }
+
+  getThesesByTitle (title: string): Observable<Thesis[]> {
+    const url = `${this.titleUrl}/?title=${title}`;
+    return this.http.get<Thesis[]>(url)
       .pipe(
         catchError(this.handleError('getTheses', []))
       );
