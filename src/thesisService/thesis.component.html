@@ -8,9 +8,9 @@
     <th>Open</th>
   </tr>
    <tr *ngFor="let thesis of thesesList">
-    <td>{{thesis.topic}}</td>
-    <td>{{thesis.author}}</td>
-    <td><a href="{{thesis.link}}">{{thesis.link}}</a></td>
+    <td id="title">{{thesis.topic}}</td>
+    <td id="author">{{thesis.author}}</td>
+    <td id="link"><a href="{{thesis.link}}">{{thesis.link}}</a></td>
   </tr>
 </table>
 </body>

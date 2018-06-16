@@ -13,25 +13,38 @@ export class FilterComponent implements OnInit {
   ngOnInit() { }
 
   searchByAuthor (event: any) {
-    let input, filter, ul, li, a, i;
+    let input, filter, ul, li;
     input = document.getElementById('authorSearch');
     filter = input.value.toUpperCase();
     ul = document.getElementById('thesisTable');
-    li = ul.getElementsByTagName('td');
-    console.log(filter, li);
+    li = ul.getElementsByTagName('tr');
 
-    // for (i = 0; i < li.length; i++) {
-    //   a = li[i].getElementsByTagName('')[0];
-    //   if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-    //     li[i].style.display = '';
-    //   } else {
-    //     li[i].style.display = 'none';
-    //
-    //   }
-    // }
+    const authorsList = [];
+    for (const thesis of li) {
+      for (const author of thesis.childNodes) {
+        if (author.id === 'author' && author.innerText.toUpperCase().includes(filter)) {
+          authorsList.push(author.innerText);
+        }
+      }
+    }
+    console.log(authorsList);
   }
 
   searchByTitle (event: any) {
-    console.log('title');
+    let input, filter, ul, li;
+    input = document.getElementById('titleSearch');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById('thesisTable');
+    li = ul.getElementsByTagName('tr');
+
+    const titlesList = [];
+    for (let thesis of li) {
+      for (let title of thesis.childNodes) {
+        if (title.id === 'title' && title.innerText.toUpperCase().includes(filter)) {
+          titlesList.push(title.innerText);
+        }
+      }
+    }
+    console.log(titlesList);
   }
 }
