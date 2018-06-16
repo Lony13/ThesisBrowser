@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 <body>
+<button id="buttonTest">Load Theses</button>
 <table id="thesisTable">
   <tr>
     <th>Topic</th>
     <th>Author</th>
     <th>Open</th>
   </tr>
-   <tr *ngFor="let thesis of thesesList">
+   <tr *ngFor="let thesis of theses">
     <td id="title">{{thesis.topic}}</td>
     <td id="author">{{thesis.author}}</td>
     <td id="link"><a href="{{thesis.link}}">{{thesis.link}}</a></td>
