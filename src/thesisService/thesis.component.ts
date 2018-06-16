@@ -33,19 +33,19 @@ export class ThesisComponent implements OnInit {
       clearSearchBoxes();
     });
     buttonGetByAuthor.addEventListener('click', () => {
-      const author = document.getElementById('authorSearch').value;
+      const author = (<HTMLInputElement> document.getElementById('authorSearch')).value;
       this.thesisService.getThesesByAuthor(author)
         .subscribe(theses => this.theses = theses);
     });
     buttonGetByTitle.addEventListener('click', () => {
-      const title = document.getElementById('titleSearch').value;
+      const title = (<HTMLInputElement>document.getElementById('titleSearch')).value;
       this.thesisService.getThesesByTitle(title)
         .subscribe(theses => this.theses = theses);
     });
 
     function clearSearchBoxes() {
-      document.getElementById('authorSearch').value = '';
-      document.getElementById('titleSearch').value = '';
+      (<HTMLInputElement>document.getElementById('authorSearch')).value = '';
+      (<HTMLInputElement>document.getElementById('titleSearch')).value = '';
     }
   }
 }
