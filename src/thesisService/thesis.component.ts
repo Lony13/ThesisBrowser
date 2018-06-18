@@ -8,21 +8,13 @@ import { ThesisService } from './thesis.service';
   styleUrls: ['./thesis.component.css']
 })
 export class ThesisComponent implements OnInit {
-  thesesList = [
-    { id: 1, title: 'Thesis First', author: 'Mr. Nice', link: 'http://www.google.com' },
-    { id: 1, title: 'Thesis Second', author: 'Mr. Best', link: 'link do pracy' },
-    { id: 1, title: 'Thesis Third', author: 'Mr. Falisz', link: 'link do pracy' },
-    { id: 1, title: 'Thesis Fourth', author: 'Mr. Test', link: 'link do pracy' },
-    { id: 1, title: 'Thesis Fifth', author: 'Mr. Gone', link: 'link do pracy' },
-    { id: 1, title: 'Thesis Sixth', author: 'Mr. Bad', link: 'link do pracy' }
-  ];
-
   theses: Thesis[];
 
   constructor(private thesisService: ThesisService) { }
 
   ngOnInit() {
-    this.theses = this.thesesList;
+    this.thesisService.getTheses()
+      .subscribe(theses => this.theses = theses);
     const buttonLoadTheses = document.getElementById('buttonLoadTheses');
     const buttonGetByAuthor = document.getElementById('buttonGetByAuthor');
     const buttonGetByTitle = document.getElementById('buttonGetByTitle');
@@ -36,11 +28,13 @@ export class ThesisComponent implements OnInit {
       const author = (<HTMLInputElement> document.getElementById('authorSearch')).value;
       this.thesisService.getThesesByAuthor(author)
         .subscribe(theses => this.theses = theses);
+      (<HTMLInputElement>document.getElementById('titleSearch')).value = '';
     });
     buttonGetByTitle.addEventListener('click', () => {
       const title = (<HTMLInputElement>document.getElementById('titleSearch')).value;
       this.thesisService.getThesesByTitle(title)
         .subscribe(theses => this.theses = theses);
+      (<HTMLInputElement>document.getElementById('authorSearch')).value = '';
     });
 
     function clearSearchBoxes() {
