@@ -11,3 +11,17 @@
   border: 1px solid #ddd;
   margin-bottom: 12px;
 }
+
+.filters {
+  width: 1100px;
+}
+
+.half-label {
+  width: 250px;
+  margin-right: 10px;
+}
+
+.label {
+  margin-right: 10px;
+  width: 510px;
+}

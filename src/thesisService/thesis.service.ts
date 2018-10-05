@@ -15,8 +15,7 @@ const httpOptions = {
 export class ThesisService {
 
   private thesesUrl = 'api/theses';
-  private authorUrl = 'http://localhost:8080/api/theses/author';
-  private titleUrl = 'http://localhost:8080/api/theses/title';
+  private searchUrl = 'http://localhost:8080/api/theses/search';
 
   constructor(
     private http: HttpClient) { }
@@ -29,19 +28,11 @@ export class ThesisService {
       );
   }
 
-  getThesesByAuthor (author: string): Observable<Thesis[]> {
-    const url = `${this.authorUrl}/?author=${author}`;
+  getThesesWithFilters (author: string): Observable<Thesis[]> {
+    const url = `${this.searchUrl}`;
     return this.http.get<Thesis[]>(url)
       .pipe(
-        catchError(this.handleError('getTheses', []))
-      );
-  }
-
-  getThesesByTitle (title: string): Observable<Thesis[]> {
-    const url = `${this.titleUrl}/?title=${title}`;
-    return this.http.get<Thesis[]>(url)
-      .pipe(
-        catchError(this.handleError('getTheses', []))
+        catchError(this.handleError('getThesesWithFilters', []))
       );
   }
 
@@ -76,32 +67,6 @@ export class ThesisService {
       catchError(this.handleError<Thesis[]>('searchTheses', []))
     );
   }
-
-  //////// Save methods //////////
-
-  // /** POST: add a new thesis to the server */
-  // addThesis (thesis: Thesis): Observable<Thesis> {
-  //   return this.http.post<Thesis>(this.thesesUrl, thesis, httpOptions).pipe(
-  //     catchError(this.handleError<Thesis>('addThesis'))
-  //   );
-  // }
-  //
-  // /** DELETE: delete the thesis from the server */
-  // deleteThesis (thesis: Thesis | number): Observable<Thesis> {
-  //   const id = typeof thesis === 'number' ? thesis : thesis.id;
-  //   const url = `${this.thesesUrl}/${id}`;
-  //
-  //   return this.http.delete<Thesis>(url, httpOptions).pipe(
-  //     catchError(this.handleError<Thesis>('deleteThesis'))
-  //   );
-  // }
-  //
-  // /** PUT: update the thesis on the server */
-  // updateThesis(thesis: Thesis): Observable<any> {
-  //   return this.http.put(this.thesesUrl, thesis, httpOptions).pipe(
-  //     catchError(this.handleError<any>('updateThesis'))
-  //   );
-  // }
 
   /**
    * Handle Http operation that failed.

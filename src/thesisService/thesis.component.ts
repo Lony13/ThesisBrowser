@@ -15,31 +15,25 @@ export class ThesisComponent implements OnInit {
   ngOnInit() {
     this.thesisService.getTheses()
       .subscribe(theses => this.theses = theses);
-    const buttonLoadTheses = document.getElementById('buttonLoadTheses');
-    const buttonGetByAuthor = document.getElementById('buttonGetByAuthor');
-    const buttonGetByTitle = document.getElementById('buttonGetByTitle');
+    const buttonSearch = document.getElementById('buttonSearch');
 
-    buttonLoadTheses.addEventListener('click', () => {
-      this.thesisService.getTheses()
+    buttonSearch.addEventListener('click', () => {
+      const author = (<HTMLInputElement> document.getElementById('authorSearch')).value;
+      this.thesisService.getThesesWithFilters(author)
         .subscribe(theses => this.theses = theses);
       clearSearchBoxes();
-    });
-    buttonGetByAuthor.addEventListener('click', () => {
-      const author = (<HTMLInputElement> document.getElementById('authorSearch')).value;
-      this.thesisService.getThesesByAuthor(author)
-        .subscribe(theses => this.theses = theses);
-      (<HTMLInputElement>document.getElementById('titleSearch')).value = '';
-    });
-    buttonGetByTitle.addEventListener('click', () => {
-      const title = (<HTMLInputElement>document.getElementById('titleSearch')).value;
-      this.thesisService.getThesesByTitle(title)
-        .subscribe(theses => this.theses = theses);
-      (<HTMLInputElement>document.getElementById('authorSearch')).value = '';
     });
 
     function clearSearchBoxes() {
       (<HTMLInputElement>document.getElementById('authorSearch')).value = '';
       (<HTMLInputElement>document.getElementById('titleSearch')).value = '';
+      (<HTMLInputElement>document.getElementById('positionFrom')).value = '';
+      (<HTMLInputElement>document.getElementById('positionTo')).value = '';
+      (<HTMLInputElement>document.getElementById('institution')).value = '';
+      (<HTMLInputElement>document.getElementById('keyWords')).value = '';
+      (<HTMLInputElement>document.getElementById('quotationNumber')).value = '';
+      (<HTMLInputElement>document.getElementById('dateFrom')).value = '';
+      (<HTMLInputElement>document.getElementById('dateTo')).value = '';
     }
   }
 }
