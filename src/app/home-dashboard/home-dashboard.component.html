@@ -2,9 +2,14 @@
 <html>
 <body>
 <div class="title">
-<h1>
-{{ title }}!
-</h1>
+  <h1>
+    {{ title }}!
+  </h1>
+</div>
+
+<div class="login_page">
+  <!--<button mat-raised-button (click)="loginPage()" color="primary">Sign In</button>-->
+  <button mat-raised-button routerLink="/login" color="primary">Sign In</button>
 </div>
 
 <app-filter></app-filter>

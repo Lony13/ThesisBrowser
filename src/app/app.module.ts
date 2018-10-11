@@ -8,12 +8,18 @@ import { FilterComponent } from '../filterService/filter.component';
 import { LoginComponent } from './login/login.component';
 import {AppRoutingModule} from './core/app.routing.module';
 import {CustomMaterialModule} from './core/material.module';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HomeDashboardComponent } from './home-dashboard/home-dashboard.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthService} from './core/auth.service';
 import {Interceptor} from './core/interceptor';
 import {TokenStorage} from './core/token.storage';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  { path: 'home', component: HomeDashboardComponent},
+  { path: 'login', component: LoginComponent },
+  { path : '', component : HomeDashboardComponent}
+];
 
 @NgModule({
   declarations: [
@@ -27,9 +33,9 @@ import {TokenStorage} from './core/token.storage';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule,
     CustomMaterialModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule
   ],
   providers: [AuthService, TokenStorage, TokenStorage,
     {provide: HTTP_INTERCEPTORS,

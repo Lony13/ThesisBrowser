@@ -11,7 +11,6 @@ export class AppComponent implements OnInit {
 
   constructor() { }
 
-  title = 'Thesis service';
   ngOnInit() {
   }
 }

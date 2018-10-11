@@ -6,7 +6,7 @@ import {HomeDashboardComponent} from '../home-dashboard/home-dashboard.component
 const routes: Routes = [
   { path: 'home', component: HomeDashboardComponent},
   { path: 'login', component: LoginComponent },
-  {path : '', component : LoginComponent}
+  {path : '', component : HomeDashboardComponent}
 ];
 
 @NgModule({

@@ -8,8 +8,7 @@ import {Router} from '@angular/router';
 })
 export class HomeDashboardComponent implements OnInit {
 
-  // title = 'Thesis browser';
-  title = '';
+  title = 'Thesis browser';
 
   constructor(private router: Router) { }
 
@@ -17,4 +16,8 @@ export class HomeDashboardComponent implements OnInit {
     this.title = 'Thesis browser';
   }
 
+  loginPage(): void {
+    console.log('redirect');
+    this.router.navigate(['login']);
+  }
 }
