@@ -20,4 +20,12 @@ export class HomeDashboardComponent implements OnInit {
     console.log('redirect');
     this.router.navigate(['login']);
   }
+
+  openNav(): void {
+    document.getElementById('mySidenav').style.width = '250px';
+  }
+
+  closeNav(): void {
+    document.getElementById('mySidenav').style.width = '0';
+  }
 }

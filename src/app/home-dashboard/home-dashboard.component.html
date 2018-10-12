@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html>
 <body>
-<div class="title">
-  <h1>
-    {{ title }}!
-  </h1>
+
+<span class="menu-bar" (click)="openNav()">&#9776;</span>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+  <a href="/login">Sign in</a>
 </div>
 
-<div class="login_page">
-  <!--<button mat-raised-button (click)="loginPage()" color="primary">Sign In</button>-->
-  <button mat-raised-button routerLink="/login" color="primary">Sign In</button>
+<div class="main-page">
+  <app-filter></app-filter>
+  <app-thesis></app-thesis>
 </div>
-
-<app-filter></app-filter>
-<app-thesis></app-thesis>
 </body>
 </html>
