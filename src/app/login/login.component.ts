@@ -17,8 +17,12 @@ export class LoginComponent {
   password: string;
 
   login(): void {
-    console.log(this.username);
-    this.router.navigate(['/home']);
+    if (this.username === 'admin' && this.password === 'admin') {
+      document.getElementById('invalid-auth').style.display = 'none';
+      this.router.navigate(['admin']);
+    } else {
+      document.getElementById('invalid-auth').style.display = '-webkit-inline-box';
+    }
     // this.authService.attemptAuth(this.username, this.password).subscribe(
     //   data => {
     //     this.token.saveToken(data.token);
