@@ -14,11 +14,14 @@ import {AuthService} from './core/auth.service';
 import {Interceptor} from './core/interceptor';
 import {TokenStorage} from './core/token.storage';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeDashboardComponent},
   { path: 'login', component: LoginComponent },
-  { path : '', component : HomeDashboardComponent}
+  { path: 'admin', component: AdminDashboardComponent},
+  { path : '', component : HomeDashboardComponent, pathMatch: 'full'}
 ];
 
 @NgModule({
@@ -27,7 +30,9 @@ const routes: Routes = [
     ThesisComponent,
     FilterComponent,
     LoginComponent,
-    HomeDashboardComponent
+    HomeDashboardComponent,
+    AdminDashboardComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
