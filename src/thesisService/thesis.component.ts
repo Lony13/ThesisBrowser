@@ -15,14 +15,15 @@ export class ThesisComponent implements OnInit {
   ngOnInit() {
     this.thesisService.getTheses()
       .subscribe(theses => this.theses = theses);
-    const buttonSearch = document.getElementById('buttonSearch');
 
-    buttonSearch.addEventListener('click', () => {
-      const author = (<HTMLInputElement> document.getElementById('authorSearch')).value;
-      this.thesisService.getThesesWithFilters(author)
-        .subscribe(theses => this.theses = theses);
-      clearSearchBoxes();
-    });
+    // const buttonSearch = document.getElementById('buttonSearch');
+    //
+    // buttonSearch.addEventListener('click', () => {
+    //   const author = (<HTMLInputElement> document.getElementById('authorSearch')).value;
+    //   this.thesisService.getThesesWithFilters(author)
+    //     .subscribe(theses => this.theses = theses);
+    //   clearSearchBoxes();
+    // });
 
     function clearSearchBoxes() {
       (<HTMLInputElement>document.getElementById('authorSearch')).value = '';
@@ -36,4 +37,9 @@ export class ThesisComponent implements OnInit {
       (<HTMLInputElement>document.getElementById('dateTo')).value = '';
     }
   }
+
+  getTheses(): void {
+    this.thesisService.getTheses().subscribe(theses => this.theses = theses);
+  }
+
 }

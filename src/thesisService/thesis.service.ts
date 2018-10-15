@@ -5,6 +5,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Thesis } from './thesis';
+import {AppModule} from '../app/app.module';
 // import { MessageService } from './message.service';
 
 const httpOptions = {
@@ -14,15 +15,15 @@ const httpOptions = {
 @Injectable({ providedIn: 'root' })
 export class ThesisService {
 
-  private thesesUrl = 'api/theses';
-  private searchUrl = 'http://localhost:8080/api/theses/search';
+  private thesesUrl = '/api/theses';
+  private searchUrl = '/api/theses/search';
 
   constructor(
     private http: HttpClient) { }
 
   /** GET theses from the server */
   getTheses (): Observable<Thesis[]> {
-    return this.http.get<Thesis[]>('http://localhost:8080/api/theses')
+    return this.http.get<Thesis[]>(AppModule.API_ENDPOINT + this.thesesUrl)
       .pipe(
         catchError(this.handleError('getTheses', []))
       );
