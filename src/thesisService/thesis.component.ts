@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Thesis } from './thesis';
 import { ThesisService } from './thesis.service';
+import {Router} from '@angular/router';
+import {ThesisDetails} from './thesisDetails';
 
 @Component({
   selector: 'app-thesis',
@@ -8,22 +10,14 @@ import { ThesisService } from './thesis.service';
   styleUrls: ['./thesis.component.css']
 })
 export class ThesisComponent implements OnInit {
+
   theses: Thesis[];
 
-  constructor(private thesisService: ThesisService) { }
+  constructor(private thesisService: ThesisService, private router: Router) { }
 
   ngOnInit() {
     this.thesisService.getTheses()
       .subscribe(theses => this.theses = theses);
-
-    // const buttonSearch = document.getElementById('buttonSearch');
-    //
-    // buttonSearch.addEventListener('click', () => {
-    //   const author = (<HTMLInputElement> document.getElementById('authorSearch')).value;
-    //   this.thesisService.getThesesWithFilters(author)
-    //     .subscribe(theses => this.theses = theses);
-    //   clearSearchBoxes();
-    // });
 
     function clearSearchBoxes() {
       (<HTMLInputElement>document.getElementById('authorSearch')).value = '';
@@ -40,6 +34,11 @@ export class ThesisComponent implements OnInit {
 
   getTheses(): void {
     this.thesisService.getTheses().subscribe(theses => this.theses = theses);
+  }
+
+  thesisDetails(id: number): void {
+    this.thesisService.setThesisId(id);
+    this.router.navigate(['thesis/details']);
   }
 
 }

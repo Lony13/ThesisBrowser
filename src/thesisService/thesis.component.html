@@ -10,7 +10,7 @@
       <th>Author</th>
       <th>Open</th>
     </tr>
-     <tr *ngFor="let thesis of theses">
+     <tr class="theses_values" *ngFor="let thesis of theses" (click)="thesisDetails(thesis.id)">
       <td id="title">{{thesis.title}}</td>
       <td id="author">{{thesis.author}}</td>
       <td id="link"><a href="{{thesis.link}}">{{thesis.link}}</a></td>

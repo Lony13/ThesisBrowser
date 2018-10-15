@@ -11,8 +11,12 @@ td, th {
   padding: 8px;
 }
 
-tr:nth-child(even) {
-  background-color: #dddddd;
+table, td, th {
+  border: 1px solid black;
+}
+
+.theses_values:hover {
+  background: #cccccc;
 }
 
 button {

@@ -6,7 +6,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { Thesis } from './thesis';
 import {AppModule} from '../app/app.module';
-// import { MessageService } from './message.service';
+import {ThesisDetails} from './thesisDetails';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -15,18 +15,31 @@ const httpOptions = {
 @Injectable({ providedIn: 'root' })
 export class ThesisService {
 
+  public thesisId: number;
+
+  private roleDemo = '?role=ROLE_DEMO';
   private thesesUrl = '/api/theses';
+  private detailsUrl = '/api/theses/details/';
   private searchUrl = '/api/theses/search';
 
-  constructor(
-    private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  /** GET theses from the server */
+  setThesisId(id: number) {
+    this.thesisId = id;
+  }
+
   getTheses (): Observable<Thesis[]> {
-    return this.http.get<Thesis[]>(AppModule.API_ENDPOINT + this.thesesUrl)
+    return this.http.get<Thesis[]>(AppModule.API_ENDPOINT + this.thesesUrl + this.roleDemo)
       .pipe(
         catchError(this.handleError('getTheses', []))
       );
+  }
+
+  getThesisDetailsById(id: number): Observable<ThesisDetails> {
+    const url = AppModule.API_ENDPOINT  + this.detailsUrl + `${id}` + this.roleDemo;
+    return this.http.get<ThesisDetails>(url).pipe(
+      catchError(this.handleError<ThesisDetails>(`getThesis id=${id}`))
+    );
   }
 
   getThesesWithFilters (author: string): Observable<Thesis[]> {
@@ -48,14 +61,6 @@ export class ThesisService {
         }),
         catchError(this.handleError<Thesis>(`getThesis id=${id}`))
       );
-  }
-
-  /** GET thesis by id. Will 404 if id not found */
-  getThesis(id: number): Observable<Thesis> {
-    const url = `${this.thesesUrl}/${id}`;
-    return this.http.get<Thesis>(url).pipe(
-      catchError(this.handleError<Thesis>(`getThesis id=${id}`))
-    );
   }
 
   /* GET theses whose name contains search term */
