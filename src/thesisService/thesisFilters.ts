@@ -1,13 +1,13 @@
 export class ThesisFilters {
-  private _author: string;
-  private _positionFrom: number;
-  private _positionTo: number;
-  private _dateFrom: Date;
-  private _dateTo: Date;
-  private _title: string;
-  private _institution: string;
-  private _keyWords: string;
-  private _quotationNumber: number;
+  public _author: string;
+  public _positionFrom: number;
+  public _positionTo: number;
+  public _dateFrom: Date;
+  public _dateTo: Date;
+  public _title: string;
+  public _institution: string;
+  public _keyWords: string;
+  public _quotationNumber: number;
 
   get author(): string {
     return this._author;
