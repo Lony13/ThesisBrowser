@@ -21,6 +21,6 @@ export class AdminDashboardComponent implements OnInit {
   }
 
   refreshTopics() {
-
+    this.adminDashboardService.refreshTopics();
   }
 }

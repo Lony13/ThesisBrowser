@@ -6,8 +6,8 @@ import {AppModule} from '../app.module';
 @Injectable({ providedIn: 'root' })
 export class AdminDashboardService {
 
-  private roleDemo = '?role=ROLE_DEMO';
-  private downloaderUrl = '/api/download';
+  private downloaderUrl = '/download';
+  private refreshUrl = '/refreshTopics';
 
   constructor(private http: HttpClient) { }
 
@@ -18,4 +18,7 @@ export class AdminDashboardService {
     }).subscribe(response => response);
   }
 
+  refreshTopics() {
+    return this.http.post(AppModule.API_ENDPOINT + this.refreshUrl, {}).subscribe(response => response);
+  }
 }
