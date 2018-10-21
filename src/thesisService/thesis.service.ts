@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
@@ -7,10 +7,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Thesis } from './thesis';
 import {AppModule} from '../app/app.module';
 import {ThesisDetails} from './thesisDetails';
-
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
+import {ThesisFilters} from './thesisFilters';
 
 @Injectable({ providedIn: 'root' })
 export class ThesisService {
@@ -42,15 +39,14 @@ export class ThesisService {
     );
   }
 
-  getThesesWithFilters (author: string): Observable<Thesis[]> {
+  getThesesWithFilters (filters: ThesisFilters): Observable<Thesis[]> {
     const url = `${this.searchUrl}`;
-    return this.http.get<Thesis[]>(url)
+    return this.http.post<Thesis[]>(url, filters)
       .pipe(
         catchError(this.handleError('getThesesWithFilters', []))
       );
   }
 
-  /** GET thesis by id. Return `undefined` when id not found */
   getThesisoNo404<Data>(id: number): Observable<Thesis> {
     const url = `${this.thesesUrl}/?id=${id}`;
     return this.http.get<Thesis[]>(url)
@@ -63,30 +59,9 @@ export class ThesisService {
       );
   }
 
-  /* GET theses whose name contains search term */
-  searchTheses(term: string): Observable<Thesis[]> {
-    if (!term.trim()) {
-      // if not search term, return empty thesis array.
-      return of([]);
-    }
-    return this.http.get<Thesis[]>(`${this.thesesUrl}/?name=${term}`).pipe(
-      catchError(this.handleError<Thesis[]>('searchTheses', []))
-    );
-  }
-
-  /**
-   * Handle Http operation that failed.
-   * Let the app continue.
-   * @param operation - name of the operation that failed
-   * @param result - optional value to return as the observable result
-   */
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
-
-      // Let the app keep running by returning an empty result.
+      console.error(error);
       return of(result as T);
     };
   }
