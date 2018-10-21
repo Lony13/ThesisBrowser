@@ -2,14 +2,15 @@
 
 <app-sidebar></app-sidebar>
 
-<div class="filters" style="margin-top: 100px;">
-  <input class="input label" type="text" id="authorSearch"  placeholder="Author..." title="Type in a name">
-  <input class="input label" type="text" id="titleSearch" placeholder="Title..." title="Type in a name">
-  <input class="input label" type="text" id="institution" placeholder="Institution..." title="Type in an institution name">
-  <input class="input label" type="text" id="keyWords" placeholder="Key words..." title="Type in key words">
-  <input class="input label" type="text" id="quotationNumber" placeholder="Quotation number..." title="Type in quotation number">
+<div class="option">
+  <p class="title">Download new theses</p>
+  <div class="filters">
+    <input class="input label" type="text" id="authorSearch"  placeholder="Author..." title="Type in a name" [(ngModel)]="author">
+    <input class="input label" type="text" id="titleSearch" placeholder="Title..." title="Type in a name" [(ngModel)]="title">
+    <button (click)="runDownloader()">Run</button>
+  </div>
 </div>
-<div>
-  <button style="margin-left: 30px;">Run</button>
+<div class="option">
+  <p class="title">Refresh topic list</p>
+  <button (click)="refreshTopics()">Refresh</button>
 </div>
-

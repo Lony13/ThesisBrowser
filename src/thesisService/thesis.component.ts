@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Thesis } from './thesis';
+import { Thesis } from '../app/model/thesis';
 import { ThesisService } from './thesis.service';
 import {Router} from '@angular/router';
-import {ThesisFilters} from './thesisFilters';
+import {ThesisFilters} from '../app/model/thesisFilters';
 
 @Component({
   selector: 'app-thesis',
