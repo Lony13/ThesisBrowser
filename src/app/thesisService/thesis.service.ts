@@ -4,10 +4,10 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { Thesis } from '../app/model/thesis';
-import {AppModule} from '../app/app.module';
-import {ThesisDetails} from '../app/model/thesisDetails';
-import {ThesisFilters} from '../app/model/thesisFilters';
+import { Thesis } from '../model/thesis';
+import {AppModule} from '../app.module';
+import {ThesisDetails} from '../model/thesisDetails';
+import {ThesisFilters} from '../model/thesisFilters';
 
 @Injectable({ providedIn: 'root' })
 export class ThesisService {

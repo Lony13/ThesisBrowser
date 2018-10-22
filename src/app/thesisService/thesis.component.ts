@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Thesis } from '../app/model/thesis';
+import { Thesis } from '../model/thesis';
 import { ThesisService } from './thesis.service';
 import {Router} from '@angular/router';
-import {ThesisFilters} from '../app/model/thesisFilters';
+import {ThesisFilters} from '../model/thesisFilters';
 
 @Component({
   selector: 'app-thesis',
@@ -18,7 +18,10 @@ export class ThesisComponent implements OnInit {
 
   ngOnInit() {
     this.thesisService.getTheses()
-      .subscribe(theses => this.theses = theses);
+      .subscribe(theses => {
+        this.theses = theses;
+        console.log(theses);
+      });
 
     this.thesisFilters = new ThesisFilters();
   }

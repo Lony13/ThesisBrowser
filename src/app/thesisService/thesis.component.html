@@ -25,8 +25,12 @@
     </tr>
      <tr class="theses_values" *ngFor="let thesis of theses" (click)="thesisDetails(thesis.id)">
       <td id="title">{{thesis.title}}</td>
-      <td id="author">{{thesis.author}}</td>
-      <td id="link"><a href="{{thesis.link}}">{{thesis.link}}</a></td>
+      <td id="author">
+        <div *ngFor="let author of thesis.authors">
+          {{ author.name }}
+        </div>
+      </td>
+      <td id="link"><a href="{{thesis.linkToPDF}}">{{thesis.linkToPDF}}</a></td>
     </tr>
   </table>
 </body>

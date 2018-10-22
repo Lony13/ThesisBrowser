@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { ThesisComponent } from '../thesisService/thesis.component';
+import { ThesisComponent } from './thesisService/thesis.component';
 import { LoginComponent } from './login/login.component';
 import {AppRoutingModule} from './core/app.routing.module';
 import {CustomMaterialModule} from './core/material.module';
