@@ -22,16 +22,20 @@
       <th>Title</th>
       <th>Author</th>
       <th>Open</th>
+      <th>Related theses</th>
     </tr>
-     <tr class="theses_values" *ngFor="let thesis of theses" (click)="thesisDetails(thesis.id)">
-      <td id="title">{{thesis.title}}</td>
+     <tr class="theses_values" *ngFor="let thesis of theses">
+      <td id="title" (click)="thesisDetails(thesis)">{{thesis.title}}</td>
       <td id="author">
         <div *ngFor="let author of thesis.authors">
           {{ author.name }}
         </div>
       </td>
-      <td id="link"><a href="{{thesis.linkToPDF}}">{{thesis.linkToPDF}}</a></td>
-    </tr>
+      <td id="link"><a href="{{thesis.linkToPDF}}">Link</a></td>
+       <td id="relatedTheses">
+         <button class="related-theses">Show</button>
+       </td>
+     </tr>
   </table>
 </body>
 </html>

@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {ThesisService} from '../thesisService/thesis.service';
 import {ThesisDetails} from '../model/thesisDetails';
-import {Observable} from 'rxjs';
+import {ThesisService} from '../thesisService/thesis.service';
 
 @Component({
   selector: 'app-thesis-details',
@@ -13,22 +12,14 @@ export class ThesisDetailsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private thesisService: ThesisService) { }
 
+  thesisId: number;
   thesisDetails: ThesisDetails;
-  thesisDetailsObservable: Observable<ThesisDetails>;
 
   ngOnInit() {
-    this.thesisDetails = new ThesisDetails();
-    this.thesisDetails.title = 'To jest tytuł';
-    this.thesisDetails.authors = ['Dr Inż Piotr Faliszewski', 'Zbigniew Kaleta'];
-    this.thesisDetails.linkToPDF = 'https://www.google.com';
-    this.thesisDetails.date = new Date(2018, 10, 22);
-    this.thesisDetails.cititationNo = 12;
-    this.thesisDetails.keyWords = ['wojna', 'irak', 'tańce słowaińskie'];
-    this.thesisDetails.relatedTheses = ['jakas praca', 'inna praca', 'taniec powszechny'];
-
-    this.thesisDetailsObservable = this.thesisService.getThesisDetailsById(this.thesisService.thesisId);
-    this.thesisDetailsObservable.subscribe(value => this.thesisDetails = value);
-    console.log(this.thesisDetails);
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.thesisId = id != null ? id : this.thesisId;
+    this.thesisService.getThesisDetailsById(id)
+      .subscribe(details => this.thesisDetails = details);
   }
 
 }

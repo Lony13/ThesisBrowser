@@ -1,5 +1,5 @@
 export class Thesis {
-  id: number;
+  thesisId: number;
   title: string;
   authors: string[];
   linkToPDF: string;

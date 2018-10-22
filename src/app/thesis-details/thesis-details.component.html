@@ -7,7 +7,7 @@
   <div>
     <p>List of authors:</p>
     <li *ngFor="let author of thesisDetails.authors">
-      {{ author }}
+      {{ author.name }}
     </li>
     <p>Date: {{thesisDetails.date.toLocaleDateString()}}</p>
     <p>List of key words:</p>

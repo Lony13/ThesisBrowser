@@ -16,17 +16,15 @@ export class ThesisService {
 
   private roleDemo = '?role=ROLE_DEMO';
   private thesesUrl = '/api/theses';
-  private detailsUrl = '/api/theses/details/';
+  private detailsUrl = '/api/theses/';
   private searchUrl = '/api/theses/search';
+
+  public theses: ThesisDetails[];
 
   constructor(private http: HttpClient) { }
 
-  setThesisId(id: number) {
-    this.thesisId = id;
-  }
-
-  getTheses (): Observable<Thesis[]> {
-    return this.http.get<Thesis[]>(AppModule.API_ENDPOINT + this.thesesUrl + this.roleDemo)
+  getTheses (): Observable<ThesisDetails[]> {
+    return this.http.get<ThesisDetails[]>(AppModule.API_ENDPOINT + this.thesesUrl + this.roleDemo)
       .pipe(
         catchError(this.handleError('getTheses', []))
       );
@@ -39,9 +37,9 @@ export class ThesisService {
     );
   }
 
-  getThesesWithFilters (filters: ThesisFilters): Observable<Thesis[]> {
+  getThesesWithFilters (filters: ThesisFilters): Observable<ThesisDetails[]> {
     const url = `${this.searchUrl}`;
-    return this.http.post<Thesis[]>(url, filters)
+    return this.http.post<ThesisDetails[]>(url, filters)
       .pipe(
         catchError(this.handleError('getThesesWithFilters', []))
       );
