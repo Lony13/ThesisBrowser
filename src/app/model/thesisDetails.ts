@@ -2,7 +2,7 @@ import {Thesis} from './thesis';
 
 export class ThesisDetails extends Thesis {
   cititationNo: number;
-  date: Date;
+  publicationDate: Date;
   relatedTheses: string[];
   keyWords: string[];
 }

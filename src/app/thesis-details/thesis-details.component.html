@@ -9,17 +9,23 @@
     <li *ngFor="let author of thesisDetails.authors">
       {{ author.name }}
     </li>
-    <p>Date: {{thesisDetails.date.toLocaleDateString()}}</p>
-    <p>List of key words:</p>
-    <li *ngFor="let word of thesisDetails.keyWords">
-      {{ word }}
-    </li>
-    <p>List of releted theses:</p>
-    <li *ngFor="let thesis of thesisDetails.relatedTheses">
-      {{ thesis }}
-    </li>
-    <p>Link to PDF:</p>
-    <a href="{{ thesisDetails.linkToPDF }}">{{ thesisDetails.linkToPDF }}</a>
+    <p *ngIf="thesisDetails.publicationDate">Date: {{thesisDetails.publicationDate}}</p>
+    <div *ngIf="thesisDetails.keyWords">
+      <p>List of key words:</p>
+      <li *ngFor="let word of thesisDetails.keyWords">
+        {{ word }}
+      </li>
+    </div>
+    <div *ngIf="thesisDetails.relatedTheses">
+      <p>List of releted theses:</p>
+      <li *ngFor="let thesis of thesisDetails.relatedTheses">
+        {{ thesis }}
+      </li>
+    </div>
+    <div *ngIf="thesisDetails.linkToPDF">
+      <p>Link to PDF:</p>
+      <a href="{{ thesisDetails.linkToPDF }}">{{ thesisDetails.linkToPDF }}</a>
+    </div>
   </div>
 </body>
 </html>

@@ -6,7 +6,7 @@ import {AppModule} from '../app.module';
 @Injectable({ providedIn: 'root' })
 export class AdminDashboardService {
 
-  private downloaderUrl = '/download';
+  private downloaderUrl = '/api/theses/download';
   private refreshUrl = '/refreshTopics';
 
   constructor(private http: HttpClient) { }

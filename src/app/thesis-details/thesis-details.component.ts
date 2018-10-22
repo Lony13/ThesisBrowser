@@ -19,7 +19,10 @@ export class ThesisDetailsComponent implements OnInit {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.thesisId = id != null ? id : this.thesisId;
     this.thesisService.getThesisDetailsById(id)
-      .subscribe(details => this.thesisDetails = details);
+      .subscribe(details => {
+        this.thesisDetails = details;
+        console.log('hehehehe', details);
+      });
   }
 
 }
