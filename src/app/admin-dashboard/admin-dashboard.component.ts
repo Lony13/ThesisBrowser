@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AdminDashboardService} from './admin-dashboard.service';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminDashboardComponent implements OnInit {
 
-  constructor() { }
+  author: string;
+  title: string;
+
+  constructor(private adminDashboardService: AdminDashboardService) { }
 
   ngOnInit() {
   }
 
+  runDownloader() {
+    this.adminDashboardService.postDownload(this.author, this.title);
+  }
+
+  refreshTopics() {
+    this.adminDashboardService.refreshTopics();
+  }
 }

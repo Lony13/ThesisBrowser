@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <div class="filters">
+    <input class="input label" type="text" id="authorSearch"  placeholder="Search for author..." title="Type in a name" [(ngModel)]="thesisFilters.author">
+    <div>
+      <input class="input half-label" type="number" id="positionFrom" placeholder="Position from..." title="Type a number" [(ngModel)]="thesisFilters.positionFrom">
+      <input class="input half-label" type="number" id="positionTo" placeholder="Position to..." title="Type a number"[(ngModel)]="thesisFilters.positionTo">
+      <input class="input half-label" type="date" id="dateFrom" placeholder="From..." title="Type a date" [(ngModel)]="thesisFilters.dateFrom">
+      <input class="input half-label" type="date" id="dateTo" placeholder="To..." title="Type a date" [(ngModel)]="thesisFilters.dateTo">
+    </div>
+    <input class="input label" type="text" id="titleSearch" placeholder="Search for title..." title="Type in a name" [(ngModel)]="thesisFilters.title">
+    <input class="input label" type="text" id="institution" placeholder="Search for institution..." title="Type in an institution name" [(ngModel)]="thesisFilters.institution">
+    <input class="input label" type="text" id="keyWords" placeholder="Search for key words..." title="Type in key words" [(ngModel)]="thesisFilters.keyWords">
+    <input class="input label" type="number" id="quotationNumber" placeholder="Search for quotation number..." title="Type in quotation number" [(ngModel)]="thesisFilters.quotationNumber">
+  </div>
+  <div class="buttons">
+    <button id="buttonSearch" (click)="filterTheses()">Search</button>
+  </div>
+  <table id="thesisTable">
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Open</th>
+      <th>Related theses</th>
+    </tr>
+     <tr class="theses_values" *ngFor="let thesis of theses">
+      <td id="title" (click)="thesisDetails(thesis)">{{thesis.title}}</td>
+      <td id="author">
+        <div *ngFor="let author of thesis.authors">
+          {{ author.name }}
+        </div>
+      </td>
+      <td id="link"><a href="{{thesis.linkToPDF}}">Link</a></td>
+       <td id="relatedTheses">
+         <button class="related-theses">Show</button>
+       </td>
+     </tr>
+  </table>
+</body>
+</html>

@@ -1,19 +1,31 @@
 <!DOCTYPE html>
 <html>
 <body>
-<table id="thesisTable">
-  <tr>
-    <th>Title</th>
-    <th>Author</th>
-    <th>Citation No</th>
-    <th>Link</th>
-  </tr>
-  <tr class="theses_values">
-    <td id="title">{{thesisDetails.title}}</td>
-    <td id="author">{{thesisDetails.author}}</td>
-    <td id="citationNo">{{thesisDetails.cititationNo}}</td>
-    <td id="link"><a href="{{thesisDetails.link}}">{{thesisDetails.link}}</a></td>
-  </tr>
-</table>
+  <div>
+    {{ thesisDetails.title }}
+  </div>
+  <div>
+    <p>List of authors:</p>
+    <li *ngFor="let author of thesisDetails.authors">
+      {{ author.name }}
+    </li>
+    <p *ngIf="thesisDetails.publicationDate">Date: {{thesisDetails.publicationDate}}</p>
+    <div *ngIf="thesisDetails.keyWords">
+      <p>List of key words:</p>
+      <li *ngFor="let word of thesisDetails.keyWords">
+        {{ word }}
+      </li>
+    </div>
+    <div *ngIf="thesisDetails.relatedTheses">
+      <p>List of releted theses:</p>
+      <li *ngFor="let thesis of thesisDetails.relatedTheses">
+        {{ thesis }}
+      </li>
+    </div>
+    <div *ngIf="thesisDetails.linkToPDF">
+      <p>Link to PDF:</p>
+      <a href="{{ thesisDetails.linkToPDF }}">{{ thesisDetails.linkToPDF }}</a>
+    </div>
+  </div>
 </body>
 </html>

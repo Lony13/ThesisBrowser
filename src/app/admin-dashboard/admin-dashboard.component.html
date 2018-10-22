@@ -2,6 +2,15 @@
 
 <app-sidebar></app-sidebar>
 
-<p style="position: absolute; top: 50%; left: 45%;">
-  Admin dashboard
-</p>
+<div class="option">
+  <p class="title">Download new theses</p>
+  <div class="filters">
+    <input class="input label" type="text" id="authorSearch"  placeholder="Author..." title="Type in a name" [(ngModel)]="author">
+    <input class="input label" type="text" id="titleSearch" placeholder="Title..." title="Type in a name" [(ngModel)]="title">
+    <button (click)="runDownloader()">Run</button>
+  </div>
+</div>
+<div class="option">
+  <p class="title">Refresh topic list</p>
+  <button (click)="refreshTopics()">Refresh</button>
+</div>
