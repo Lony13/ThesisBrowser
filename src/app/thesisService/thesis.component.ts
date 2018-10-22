@@ -21,7 +21,6 @@ export class ThesisComponent implements OnInit {
     this.thesisService.getTheses()
       .subscribe(theses => {
         this.thesisService.theses = theses;
-        console.log(theses);
 
         this.thesisService.theses[0].thesisId = 0;
         this.thesisService.theses[1].thesisId = 1;
