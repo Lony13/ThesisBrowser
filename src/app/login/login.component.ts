@@ -21,12 +21,11 @@ export class LoginComponent {
       data => {
         this.token.saveToken(data.token);
         this.router.navigate(['admin']);
+      },
+      error => {
+        document.getElementById('invalid-auth').style.display = '-webkit-inline-box';;
       }
     );
-    setTimeout(() => {
-        document.getElementById('invalid-auth').style.display = '-webkit-inline-box';;
-      },
-      100);
   }
 
 }
