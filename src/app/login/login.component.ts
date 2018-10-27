@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthService} from '../core/auth.service';
 import {TokenStorage} from '../core/token.storage';
@@ -23,7 +23,8 @@ export class LoginComponent {
         this.router.navigate(['admin']);
       },
       error => {
-        document.getElementById('invalid-auth').style.display = '-webkit-inline-box';;
+        document.getElementById('invalid-auth').style.display = '-webkit-inline-box';
+        ;
       }
     );
   }

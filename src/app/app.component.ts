@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {$} from 'protractor';
-import {Router} from '@angular/router';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +7,8 @@ import {Router} from '@angular/router';
 })
 export class AppComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

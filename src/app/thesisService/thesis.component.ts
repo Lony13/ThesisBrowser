@@ -15,7 +15,8 @@ export class ThesisComponent implements OnInit {
   thesisFilters: ThesisFilters;
   theses: ThesisDetails[];
 
-  constructor(private thesisService: ThesisService, private router: Router) { }
+  constructor(private thesisService: ThesisService, private router: Router) {
+  }
 
   ngOnInit() {
     this.thesisService.getTheses()

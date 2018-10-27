@@ -19,11 +19,11 @@ import {ThesisDetailsComponent} from './thesis-details/thesis-details.component'
 import {AuthGuard} from './core/authGuard';
 
 const routes: Routes = [
-  { path: 'home', component: HomeDashboardComponent},
-  { path: 'login', component: LoginComponent },
-  { path: 'admin', component: AdminDashboardComponent, canActivate: [Interceptor]},
-  { path: 'thesis/details', component: ThesisDetailsComponent},
-  { path : '', component : HomeDashboardComponent, pathMatch: 'full'}
+  {path: 'home', component: HomeDashboardComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'admin', component: AdminDashboardComponent, canActivate: [Interceptor]},
+  {path: 'thesis/details', component: ThesisDetailsComponent},
+  {path: '', component: HomeDashboardComponent, pathMatch: 'full'}
 ];
 
 @NgModule({
@@ -45,9 +45,11 @@ const routes: Routes = [
     RouterModule
   ],
   providers: [AuthService, TokenStorage, AuthGuard, TokenStorage,
-    {provide: HTTP_INTERCEPTORS,
+    {
+      provide: HTTP_INTERCEPTORS,
       useClass: Interceptor,
-      multi : true}
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

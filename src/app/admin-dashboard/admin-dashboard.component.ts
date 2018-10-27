@@ -15,7 +15,8 @@ export class AdminDashboardComponent implements OnInit {
 
   constructor(private adminDashboardService: AdminDashboardService,
               private token: TokenStorage,
-              private router: Router) { }
+              private router: Router) {
+  }
 
   ngOnInit() {
   }

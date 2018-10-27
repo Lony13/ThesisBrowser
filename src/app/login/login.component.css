@@ -13,9 +13,11 @@ body {
   border: 1px solid #9C9C9C;
   background-color: #EAEAEA;
 }
+
 #login .container #login-row #login-column #login-box #login-form {
   padding: 20px;
 }
+
 #login .container #login-row #login-column #login-box #login-form #register-link {
   margin-top: -85px;
 }
@@ -26,18 +28,23 @@ body {
   margin-bottom: 0;
   margin-left: 15px;
 }
+
 .label-cbx input:checked + .checkbox {
   border-color: #20C2E0;
 }
+
 .label-cbx input:checked + .checkbox svg path {
   fill: #20C2E0;
 }
+
 .label-cbx input:checked + .checkbox svg polyline {
   stroke-dashoffset: 0;
 }
+
 .label-cbx:hover .checkbox svg path {
   stroke-dashoffset: 0;
 }
+
 .label-cbx .checkbox {
   position: relative;
   top: 2px;
@@ -48,11 +55,13 @@ body {
   border: 2px solid #C8CCD4;
   border-radius: 3px;
 }
+
 .label-cbx .checkbox svg {
   position: absolute;
   top: -2px;
   left: -2px;
 }
+
 .label-cbx .checkbox svg path {
   fill: none;
   stroke: #20C2E0;
@@ -63,6 +72,7 @@ body {
   stroke-dashoffset: 71px;
   transition: all 0.6s ease;
 }
+
 .label-cbx .checkbox svg polyline {
   fill: none;
   stroke: #FFF;
@@ -73,6 +83,7 @@ body {
   stroke-dashoffset: 18px;
   transition: all 0.3s ease;
 }
+
 .label-cbx > span {
   pointer-events: none;
   vertical-align: middle;
