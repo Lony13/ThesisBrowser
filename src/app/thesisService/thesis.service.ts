@@ -16,7 +16,7 @@ export class ThesisService {
 
   private roleDemo = '?role=ROLE_DEMO';
   private thesesUrl = '/api/theses';
-  private detailsUrl = '/api/theses/';
+  private detailsUrl = '/api/theses/details/';
   private searchUrl = '/api/theses/search';
 
   public theses: ThesisDetails[];
@@ -38,7 +38,7 @@ export class ThesisService {
   }
 
   getThesesWithFilters (filters: ThesisFilters): Observable<ThesisDetails[]> {
-    const url = `${this.searchUrl}`;
+    const url = AppModule.API_ENDPOINT + `${this.searchUrl}`;
     return this.http.post<ThesisDetails[]>(url, filters)
       .pipe(
         catchError(this.handleError('getThesesWithFilters', []))
