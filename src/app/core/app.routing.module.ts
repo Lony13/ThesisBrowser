@@ -4,14 +4,14 @@ import {LoginComponent} from '../login/login.component';
 import {HomeDashboardComponent} from '../home-dashboard/home-dashboard.component';
 import {AdminDashboardComponent} from '../admin-dashboard/admin-dashboard.component';
 import {ThesisDetailsComponent} from '../thesis-details/thesis-details.component';
-import {ThesisDetails} from '../model/thesisDetails';
+import {AuthGuard} from './authGuard';
 
 const routes: Routes = [
-  { path: 'home', component: HomeDashboardComponent},
-  { path: 'login', component: LoginComponent },
-  { path: 'admin', component: AdminDashboardComponent},
-  { path: 'thesis/details/:id', component: ThesisDetailsComponent},
-  {path : '', component : HomeDashboardComponent}
+  {path: 'home', component: HomeDashboardComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'admin', component: AdminDashboardComponent, canActivate: [AuthGuard]},
+  {path: 'thesis/details/:id', component: ThesisDetailsComponent},
+  {path: '', component: HomeDashboardComponent}
 ];
 
 @NgModule({
@@ -23,4 +23,5 @@ const routes: Routes = [
   ],
   declarations: []
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

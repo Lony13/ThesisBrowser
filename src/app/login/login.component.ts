@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthService} from '../core/auth.service';
 import {TokenStorage} from '../core/token.storage';
@@ -21,12 +21,12 @@ export class LoginComponent {
       data => {
         this.token.saveToken(data.token);
         this.router.navigate(['admin']);
+      },
+      error => {
+        document.getElementById('invalid-auth').style.display = '-webkit-inline-box';
+        ;
       }
     );
-    setTimeout(() => {
-        document.getElementById('invalid-auth').style.display = '-webkit-inline-box';;
-      },
-      100);
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-home-dashboard',
@@ -9,7 +9,8 @@ export class HomeDashboardComponent implements OnInit {
 
   title = 'Thesis browser';
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
     this.title = 'Thesis browser';

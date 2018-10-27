@@ -2,11 +2,16 @@
 
 <app-sidebar></app-sidebar>
 
+<div>
+  <button class="btn-logout" (click)="logout()">Logout</button>
+</div>
 <div class="option">
   <p class="title">Download new theses</p>
   <div class="filters">
-    <input class="input label" type="text" id="authorSearch"  placeholder="Author..." title="Type in a name" [(ngModel)]="author">
-    <input class="input label" type="text" id="titleSearch" placeholder="Title..." title="Type in a name" [(ngModel)]="title">
+    <input class="input label" type="text" id="authorSearch" placeholder="Author..." title="Type in a name"
+           [(ngModel)]="author">
+    <input class="input label" type="text" id="titleSearch" placeholder="Title..." title="Type in a name"
+           [(ngModel)]="title">
     <button (click)="runDownloader()">Run</button>
   </div>
 </div>

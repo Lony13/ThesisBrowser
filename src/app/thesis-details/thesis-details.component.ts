@@ -10,7 +10,8 @@ import {ThesisService} from '../thesisService/thesis.service';
 })
 export class ThesisDetailsComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private thesisService: ThesisService) { }
+  constructor(private route: ActivatedRoute, private thesisService: ThesisService) {
+  }
 
   thesisId: number;
   thesisDetails: ThesisDetails;

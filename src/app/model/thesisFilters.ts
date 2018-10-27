@@ -1,83 +1,83 @@
 export class ThesisFilters {
-  public _author: string;
-  public _positionFrom: number;
-  public _positionTo: number;
-  public _dateFrom: Date;
-  public _dateTo: Date;
-  public _title: string;
-  public _institution: string;
-  public _keyWords: string;
-  public _quotationNumber: number;
+  public author: string;
+  public positionFrom: number;
+  public positionTo: number;
+  public dateFrom: Date;
+  public dateTo: Date;
+  public title: string;
+  public institution: string;
+  public keyWords: string;
+  public quotationNumber: number;
 
-  get author(): string {
-    return this._author;
+  get getAuthor(): string {
+    return this.author;
   }
 
-  set author(value: string) {
-    this._author = value;
+  set setAuthor(value: string) {
+    this.author = value;
   }
 
-  get positionFrom(): number {
-    return this._positionFrom;
+  get getPositionFrom(): number {
+    return this.positionFrom;
   }
 
-  set positionFrom(value: number) {
-    this._positionFrom = value;
+  set setPositionFrom(value: number) {
+    this.positionFrom = value;
   }
 
-  get positionTo(): number {
-    return this._positionTo;
+  get getPositionTo(): number {
+    return this.positionTo;
   }
 
-  set positionTo(value: number) {
-    this._positionTo = value;
+  set setPositionTo(value: number) {
+    this.positionTo = value;
   }
 
-  get dateFrom(): Date {
-    return this._dateFrom;
+  get getDateFrom(): Date {
+    return this.dateFrom;
   }
 
-  set dateFrom(value: Date) {
-    this._dateFrom = value;
+  set setDateFrom(value: Date) {
+    this.dateFrom = value;
   }
 
-  get dateTo(): Date {
-    return this._dateTo;
+  get getDateTo(): Date {
+    return this.dateTo;
   }
 
-  set dateTo(value: Date) {
-    this._dateTo = value;
+  set setDateTo(value: Date) {
+    this.dateTo = value;
   }
 
-  get title(): string {
-    return this._title;
+  get getTitle(): string {
+    return this.title;
   }
 
-  set title(value: string) {
-    this._title = value;
+  set setTitle(value: string) {
+    this.title = value;
   }
 
-  get institution(): string {
-    return this._institution;
+  get getInstitution(): string {
+    return this.institution;
   }
 
-  set institution(value: string) {
-    this._institution = value;
+  set setInstitution(value: string) {
+    this.institution = value;
   }
 
-  get keyWords(): string {
-    return this._keyWords;
+  get getKeyWords(): string {
+    return this.keyWords;
   }
 
-  set keyWords(value: string) {
-    this._keyWords = value;
+  set setKeyWords(value: string) {
+    this.keyWords = value;
   }
 
-  get quotationNumber(): number {
-    return this._quotationNumber;
+  get getQuotationNumber(): number {
+    return this.quotationNumber;
   }
 
-  set quotationNumber(value: number) {
-    this._quotationNumber = value;
+  set setQuotationNumber(value: number) {
+    this.quotationNumber = value;
   }
 }
