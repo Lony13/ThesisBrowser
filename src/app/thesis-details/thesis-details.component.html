@@ -7,7 +7,7 @@
 <div>
   <p>List of authors:</p>
   <li *ngFor="let author of thesisDetails.authors">
-    {{ author.name }}
+    {{ author }}
   </li>
   <p *ngIf="thesisDetails.publicationDate">Date: {{thesisDetails.publicationDate}}</p>
   <div *ngIf="thesisDetails.keyWords">

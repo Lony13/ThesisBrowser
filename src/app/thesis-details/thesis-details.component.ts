@@ -21,6 +21,7 @@ export class ThesisDetailsComponent implements OnInit {
     this.thesisId = id != null ? id : this.thesisId;
     this.thesisService.getThesisDetailsById(id)
       .subscribe(details => {
+        console.log(details);
         this.thesisDetails = details;
       });
   }
