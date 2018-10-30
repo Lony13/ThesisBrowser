@@ -1,30 +1,36 @@
 <!DOCTYPE html>
 <html>
 <body>
-<div>
-  {{ thesisDetails.title }}
-</div>
-<div>
-  <p>List of authors:</p>
-  <li *ngFor="let author of thesisDetails.authors">
-    {{ author }}
-  </li>
-  <p *ngIf="thesisDetails.publicationDate">Date: {{thesisDetails.publicationDate}}</p>
-  <div *ngIf="thesisDetails.keyWords">
-    <p>List of key words:</p>
-    <li *ngFor="let word of thesisDetails.keyWords">
-      {{ word }}
-    </li>
+<app-horizontal-menu></app-horizontal-menu>
+<div class="data-holder">
+  <div>
+    {{ thesisDetails.title }}
   </div>
-  <div *ngIf="thesisDetails.relatedTheses">
-    <p>List of releted theses:</p>
-    <li *ngFor="let thesis of thesisDetails.relatedTheses">
-      {{ thesis }}
+  <div>
+    <p>List of authors:</p>
+    <li *ngFor="let author of thesisDetails.authors">
+      {{ author }}
     </li>
+    <p *ngIf="thesisDetails.publicationDate">Date: {{thesisDetails.publicationDate}}</p>
+    <div *ngIf="thesisDetails.keyWords">
+      <p>List of key words:</p>
+      <li *ngFor="let word of thesisDetails.keyWords">
+        {{ word }}
+      </li>
+    </div>
+    <div *ngIf="thesisDetails.relatedTheses">
+      <p>List of releted theses:</p>
+      <li *ngFor="let thesis of thesisDetails.relatedTheses">
+        {{ thesis }}
+      </li>
+    </div>
+    <div *ngIf="thesisDetails.linkToPDF">
+      <p>Link to PDF:</p>
+      <a href="{{ thesisDetails.linkToPDF }}">{{ thesisDetails.linkToPDF }}</a>
+    </div>
   </div>
-  <div *ngIf="thesisDetails.linkToPDF">
-    <p>Link to PDF:</p>
-    <a href="{{ thesisDetails.linkToPDF }}">{{ thesisDetails.linkToPDF }}</a>
+  <div>
+    <button onclick="updateQuotations()">Update quotations</button>
   </div>
 </div>
 </body>

@@ -10,7 +10,8 @@ import {ThesisService} from '../thesisService/thesis.service';
 })
 export class ThesisDetailsComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private thesisService: ThesisService) {
+  constructor(private route: ActivatedRoute,
+              private thesisService: ThesisService) {
   }
 
   thesisId: number;
@@ -21,9 +22,11 @@ export class ThesisDetailsComponent implements OnInit {
     this.thesisId = id != null ? id : this.thesisId;
     this.thesisService.getThesisDetailsById(id)
       .subscribe(details => {
-        console.log(details);
         this.thesisDetails = details;
       });
   }
 
+  updateQuotations() {
+    this.thesisService.updateQuotations(this.thesisId);
+  }
 }

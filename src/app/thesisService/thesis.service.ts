@@ -14,10 +14,10 @@ export class ThesisService {
 
   public thesisId: number;
 
-  private roleDemo = '?role=ROLE_DEMO';
   private thesesUrl = '/api/theses';
   private detailsUrl = '/api/theses/details/';
   private searchUrl = '/api/theses/search';
+  private updateQuotationsUrl = '/thesis/quotation/updates';
 
   public theses: ThesisDetails[];
 
@@ -25,14 +25,14 @@ export class ThesisService {
   }
 
   getTheses(): Observable<ThesisDetails[]> {
-    return this.http.get<ThesisDetails[]>(AppModule.API_ENDPOINT + this.thesesUrl + this.roleDemo)
+    return this.http.get<ThesisDetails[]>(AppModule.API_ENDPOINT + this.thesesUrl)
       .pipe(
         catchError(this.handleError('getTheses', []))
       );
   }
 
   getThesisDetailsById(id: number): Observable<ThesisDetails> {
-    const url = AppModule.API_ENDPOINT + this.detailsUrl + `${id}` + this.roleDemo;
+    const url = AppModule.API_ENDPOINT + this.detailsUrl + `${id}`;
     return this.http.get<ThesisDetails>(url).pipe(
       catchError(this.handleError<ThesisDetails>(`getThesis id=${id}`))
     );
@@ -44,6 +44,12 @@ export class ThesisService {
       .pipe(
         catchError(this.handleError('getThesesWithFilters', []))
       );
+  }
+
+  updateQuotations(id: number) {
+    return this.http.get<number>(AppModule.API_ENDPOINT + this.updateQuotationsUrl).pipe(
+      catchError(this.handleError<number>(`updateQuotations id=${id}`))
+    );
   }
 
   getThesisoNo404<Data>(id: number): Observable<Thesis> {

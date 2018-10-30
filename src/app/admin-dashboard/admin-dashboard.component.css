@@ -53,12 +53,3 @@ button {
 .buttons {
   margin-bottom: 10px;
 }
-
-.btn-logout {
-  float: right;
-  height: 35px;
-  width: 80px;
-  padding: 5px;
-  font-size: 14px;
-  margin-top: -30px;
-}

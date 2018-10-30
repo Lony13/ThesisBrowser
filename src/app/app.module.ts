@@ -17,6 +17,7 @@ import {AdminDashboardComponent} from './admin-dashboard/admin-dashboard.compone
 import {SidebarComponent} from './sidebar/sidebar.component';
 import {ThesisDetailsComponent} from './thesis-details/thesis-details.component';
 import {AuthGuard} from './core/authGuard';
+import {HorizontalMenuComponent} from './horizontal-menu/horizontal-menu.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeDashboardComponent},
@@ -34,7 +35,8 @@ const routes: Routes = [
     HomeDashboardComponent,
     AdminDashboardComponent,
     SidebarComponent,
-    ThesisDetailsComponent
+    ThesisDetailsComponent,
+    HorizontalMenuComponent
   ],
   imports: [
     BrowserModule,

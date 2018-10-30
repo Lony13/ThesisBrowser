@@ -1,7 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {AdminDashboardService} from './admin-dashboard.service';
-import {TokenStorage} from '../core/token.storage';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -13,9 +11,7 @@ export class AdminDashboardComponent implements OnInit {
   author: string;
   title: string;
 
-  constructor(private adminDashboardService: AdminDashboardService,
-              private token: TokenStorage,
-              private router: Router) {
+  constructor(private adminDashboardService: AdminDashboardService) {
   }
 
   ngOnInit() {
@@ -27,10 +23,5 @@ export class AdminDashboardComponent implements OnInit {
 
   refreshTopics() {
     this.adminDashboardService.refreshTopics();
-  }
-
-  logout() {
-    this.token.signOut();
-    this.router.navigate(['login']);
   }
 }
