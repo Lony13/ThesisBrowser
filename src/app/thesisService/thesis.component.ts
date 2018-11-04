@@ -36,7 +36,6 @@ export class ThesisComponent implements OnInit {
   }
 
   filterTheses(): void {
-    console.log(this.thesisFilters.author);
     this.thesisService.getThesesWithFilters(this.thesisFilters).subscribe(theses => this.thesisService.theses = theses);
   }
 

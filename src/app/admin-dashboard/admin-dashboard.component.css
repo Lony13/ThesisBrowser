@@ -53,3 +53,14 @@ button {
 .buttons {
   margin-bottom: 10px;
 }
+
+.adminoptions {
+  float: left;
+  overflow: hidden;
+}
+
+.infowindow {
+  float: right;
+  width: 500px;
+  margin-top: 20px;
+}
