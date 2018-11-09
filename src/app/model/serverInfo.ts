@@ -1,9 +1,9 @@
 export class ServerInfo {
   message: string;
-  time: Date;
+  date: Date;
 
-  constructor(message: string, time: Date) {
+  constructor(message: string, date: Date) {
     this.message = message;
-    this.time = time;
+    this.date = date;
   }
 }
