@@ -22,13 +22,6 @@ export class ThesisComponent implements OnInit {
     this.thesisService.getTheses()
       .subscribe(theses => {
         this.thesisService.theses = theses;
-
-        this.thesisService.theses[0].thesisId = 0;
-        this.thesisService.theses[1].thesisId = 1;
-        this.thesisService.theses[2].thesisId = 2;
-        this.thesisService.theses[3].thesisId = 3;
-        this.thesisService.theses[4].thesisId = 4;
-
         this.theses = this.thesisService.theses;
       });
 
@@ -36,11 +29,14 @@ export class ThesisComponent implements OnInit {
   }
 
   filterTheses(): void {
-    this.thesisService.getThesesWithFilters(this.thesisFilters).subscribe(theses => this.thesisService.theses = theses);
+    this.thesisService.getThesesWithFilters(this.thesisFilters).subscribe(theses => {
+      this.thesisService.theses = theses;
+      this.theses = theses;
+    });
   }
 
   thesisDetails(thesis: Thesis): void {
-    this.router.navigate(['thesis/details', thesis.thesisId]);
+    this.router.navigate(['thesis/details', thesis.id]);
   }
 
 }

@@ -12,7 +12,7 @@ import {ThesisFilters} from '../model/thesisFilters';
 @Injectable({providedIn: 'root'})
 export class ThesisService {
 
-  public thesisId: number;
+  public id: number;
 
   private thesesUrl = '/api/theses';
   private detailsUrl = '/api/theses/details/';
