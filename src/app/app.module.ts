@@ -58,5 +58,4 @@ const routes: Routes = [
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  public static API_ENDPOINT = 'http://localhost:8080';
 }
