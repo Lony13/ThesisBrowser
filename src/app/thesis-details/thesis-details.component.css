@@ -40,3 +40,8 @@ button {
   margin-top: 15px;
 }
 
+.menu-bar {
+  margin-left: -16px;
+  margin-right: -16px;
+  margin-top: -8px;
+}
