@@ -18,7 +18,6 @@ export class InfoWindowComponent implements OnInit {
       .subscribe(value => {
         this.messages = value;
         this.adminService.setServerInfo(this.messages);
-        console.log(this.messages);
       });
   }
 }
