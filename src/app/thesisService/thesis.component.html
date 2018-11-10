@@ -28,7 +28,7 @@
   <button id="buttonSearch" (click)="filterTheses()">Filter theses</button>
 </div>
 <div class="buttons relatedtheses-btn">
-  <button class="related-theses">Show related</button>
+  <button class="related-theses" (click)="relatedTheses()">Show related</button>
 </div>
 <table id="thesisTable">
   <tr>
@@ -47,7 +47,7 @@
     <td id="link"><a id="linktopdf" href="{{thesis.linkToPDF}}" target="_blank">Link</a></td>
     <td id="relatedTheses">
       <div class="material-switch pull-right">
-        <input id="check{{thesis.id}}" name="someSwitchOption001" type="checkbox"/>
+        <input id="check{{thesis.id}}" name="checkbox-related-theses" type="checkbox" (change)="updateValue(thesis.id)"/>
         <label for="check{{thesis.id}}" class="label-primary"></label>
       </div>
     </td>

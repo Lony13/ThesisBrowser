@@ -18,6 +18,7 @@ export class ThesisService {
   private detailsUrl = '/api/theses/details/';
   private searchUrl = '/api/theses/search';
   private updateQuotationsUrl = '/thesis/quotation/updates';
+  private relatedThesesUrl: '/theses/related';
 
   public theses: ThesisDetails[];
 
@@ -43,6 +44,14 @@ export class ThesisService {
     return this.http.post<ThesisDetails[]>(url, filters)
       .pipe(
         catchError(this.handleError('getThesesWithFilters', []))
+      );
+  }
+
+  getRelatedTheses(listOfIds: number[]): Observable<ThesisDetails[]> {
+    const url = AppSettings.API_ENDPOINT + this.relatedThesesUrl;
+    return this.http.post<ThesisDetails[]>(url, listOfIds)
+      .pipe(
+        catchError(this.handleError('getRelatedTheses', []))
       );
   }
 
