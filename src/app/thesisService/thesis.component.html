@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+<head>
+</head>
 <body>
 
 <div class="filters">
@@ -34,8 +36,8 @@
   <tr>
     <th>Title</th>
     <th>Author</th>
-    <th>Open</th>
-    <th>Related</th>
+    <th id="opencolumn">Open</th>
+    <th id="relatedcolumn">Related</th>
   </tr>
   <tr class="theses_values" *ngFor="let thesis of theses">
     <td id="title" (click)="thesisDetails(thesis)">{{thesis.title}}</td>
@@ -44,9 +46,12 @@
         {{ author }}
       </div>
     </td>
-    <td id="link"><a href="{{thesis.linkToPDF}}">Link</a></td>
+    <td id="link"><a id="linktopdf" href="{{thesis.linkToPDF}}">Link</a></td>
     <td id="relatedTheses">
-      <input id="check{{thesis.id}}" type="checkbox"/>
+      <div class="material-switch pull-right">
+        <input id="check{{thesis.id}}" name="someSwitchOption001" type="checkbox"/>
+        <label for="check{{thesis.id}}" class="label-primary"></label>
+      </div>
     </td>
   </tr>
 </table>
