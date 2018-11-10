@@ -9,7 +9,7 @@ import {catchError} from 'rxjs/operators';
 export class AdminDashboardService {
 
   private downloaderUrl = '/theses/download';
-  private refreshUrl = '/refreshTopics';
+  private refreshUrl = '/api/lda/run';
   private updateQuotationUrl = '/thesis/quotation/updates';
   private serverInfoUrl = '/server/info';
 
