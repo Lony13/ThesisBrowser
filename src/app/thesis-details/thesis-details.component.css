@@ -1,18 +1,12 @@
 table {
-  margin-top: 100px;
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
 
 td, th {
-  border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
-}
-
-table, td, th {
-  border: 1px solid black;
 }
 
 .theses_values:hover {
@@ -44,4 +38,42 @@ button {
   margin-left: -16px;
   margin-right: -16px;
   margin-top: -8px;
+}
+
+tr {
+  margin-bottom: 14px;
+}
+
+tr:last-child {
+  margin-bottom: 0;
+  border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+td:nth-child(1) {
+  font-weight: bold;
+}
+
+.table-thesis-details > tbody > tr {
+  border-top: 1px solid rgb(221, 221, 221);
+}
+
+.table-thesis-details > tbody > tr:first-child {
+  border-top: 0;
+}
+
+.table-thesis-details > tbody > tr > td {
+  border-top: 0;
+}
+.toppad {
+  margin-top:20px;
+}
+
+.panel {
+  width: 800px;
+}
+
+.details-container {
+  display: inline-block;
+  position: absolute;
+  margin-left: -60px;
 }
