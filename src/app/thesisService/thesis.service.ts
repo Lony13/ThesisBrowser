@@ -47,9 +47,9 @@ export class ThesisService {
       );
   }
 
-  getRelatedTheses(listOfIds: number[]): Observable<ThesisDetails[]> {
+  getRelatedTheses(thesisFilters: ThesisFilters): Observable<ThesisDetails[]> {
     const url = AppSettings.API_ENDPOINT + this.relatedThesesUrl;
-    return this.http.post<ThesisDetails[]>(url, listOfIds)
+    return this.http.post<ThesisDetails[]>(url, thesisFilters)
       .pipe(
         catchError(this.handleError('getRelatedTheses', []))
       );

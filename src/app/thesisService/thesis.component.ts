@@ -14,7 +14,6 @@ export class ThesisComponent implements OnInit {
 
   thesisFilters: ThesisFilters;
   theses: ThesisDetails[];
-  checked: number[];
 
   constructor(private thesisService: ThesisService, private router: Router) {
   }
@@ -27,7 +26,6 @@ export class ThesisComponent implements OnInit {
       });
 
     this.thesisFilters = new ThesisFilters();
-    this.checked = [];
 
     this.prepareDatepicker();
   }
@@ -40,7 +38,7 @@ export class ThesisComponent implements OnInit {
   }
 
   relatedTheses(): void {
-    this.thesisService.getRelatedTheses(this.checked)
+    this.thesisService.getRelatedTheses(this.thesisFilters)
       .subscribe(theses => {
         this.theses = theses;
         this.thesisService.theses = theses;
@@ -50,9 +48,9 @@ export class ThesisComponent implements OnInit {
   updateValue(id: any) {
     const idName = 'check' + id;
     if ((<HTMLInputElement>document.getElementById(idName)).checked) {
-      this.checked.push(id);
+      this.thesisFilters.listOfIds.push(id);
     } else {
-      this.checked = this.checked.filter(value => value !== id);
+      this.thesisFilters.listOfIds = this.thesisFilters.listOfIds.filter(value => value !== id);
     }
   }
 

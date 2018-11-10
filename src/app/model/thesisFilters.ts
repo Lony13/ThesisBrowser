@@ -8,6 +8,7 @@ export class ThesisFilters {
   public institution: string;
   public keyWords: string;
   public quotationNumber: number;
+  public listOfIds: number[];
 
   get getAuthor(): string {
     return this.author;
