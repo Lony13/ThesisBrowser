@@ -48,7 +48,9 @@ export class ThesisComponent implements OnInit {
     for (let year = start; year <= end; year++) {
       options += '<option>' + year + '</option>';
     }
-    document.getElementById('dateFrom').innerHTML = options;
-    document.getElementById('dateTo').innerHTML = options;
+    const optionsFrom = '<option value="" disabled selected>Date from</option>' + options;
+    const optionsTo = '<option value="" disabled selected>Date to</option>' + options;
+    document.getElementById('dateFrom').innerHTML = optionsFrom;
+    document.getElementById('dateTo').innerHTML = optionsTo;
   }
 }
