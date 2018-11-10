@@ -42,10 +42,10 @@ export class ThesisComponent implements OnInit {
   }
 
   prepareDatepicker() {
-    const start = 1900;
-    const end = new Date().getFullYear();
+    const start = new Date().getFullYear();
+    const end = 1900;
     let options = '';
-    for (let year = start; year <= end; year++) {
+    for (let year = start; year >= end; year--) {
       options += '<option>' + year + '</option>';
     }
     const optionsFrom = '<option value="" disabled selected>Date from</option>' + options;
