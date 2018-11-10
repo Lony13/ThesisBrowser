@@ -12,10 +12,8 @@
            [(ngModel)]="thesisFilters.positionFrom">
     <input class="input half-label" type="number" id="positionTo" placeholder="Position to..." title="Type a number"
            [(ngModel)]="thesisFilters.positionTo">
-    <input class="input half-label" type="date" id="dateFrom" placeholder="From..." title="Type a date"
-           [(ngModel)]="thesisFilters.dateFrom">
-    <input class="input half-label" type="date" id="dateTo" placeholder="To..." title="Type a date"
-           [(ngModel)]="thesisFilters.dateTo">
+    <select title="Date from..." class="input half-label" id="dateFrom"  [(ngModel)]="thesisFilters.dateFrom"></select>
+    <select title="Date to..." class="input half-label" id="dateTo"  [(ngModel)]="thesisFilters.dateTo"></select>
   </div>
   <input class="input label" type="text" id="titleSearch" placeholder="Search for title..." title="Type in a name"
          [(ngModel)]="thesisFilters.title">

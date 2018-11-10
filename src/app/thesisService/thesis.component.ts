@@ -26,6 +26,8 @@ export class ThesisComponent implements OnInit {
       });
 
     this.thesisFilters = new ThesisFilters();
+
+    this.prepareDatepicker();
   }
 
   filterTheses(): void {
@@ -39,4 +41,14 @@ export class ThesisComponent implements OnInit {
     this.router.navigate(['thesis/details', thesis.id]);
   }
 
+  prepareDatepicker() {
+    const start = 1900;
+    const end = new Date().getFullYear();
+    let options = '';
+    for (let year = start; year <= end; year++) {
+      options += '<option>' + year + '</option>';
+    }
+    document.getElementById('dateFrom').innerHTML = options;
+    document.getElementById('dateTo').innerHTML = options;
+  }
 }
