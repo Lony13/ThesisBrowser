@@ -9,7 +9,7 @@ import {AdminDashboardService} from '../admin-dashboard/admin-dashboard.service'
 })
 export class InfoWindowComponent implements OnInit {
 
-  messages: ServerInfo[];
+  public messages: ServerInfo[];
 
   constructor(private adminService: AdminDashboardService) { }
 

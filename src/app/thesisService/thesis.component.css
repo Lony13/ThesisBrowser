@@ -137,3 +137,7 @@ button {
 #relatedcolumn {
   width: 50px;
 }
+
+#table-no {
+  width: 20px!important;
+}

@@ -18,7 +18,8 @@ export class ThesisService {
   private detailsUrl = '/api/theses/details/';
   private searchUrl = '/api/theses/search';
   private updateQuotationsUrl = '/thesis/quotation/updates';
-  private relatedThesesUrl: '/theses/related';
+  private relatedThesesUrl = '/api/theses/similar';
+
 
   public theses: ThesisDetails[];
 

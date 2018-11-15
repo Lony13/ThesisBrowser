@@ -32,12 +32,14 @@
 </div>
 <table id="thesisTable">
   <tr>
+    <th id="table-no">No.</th>
     <th>Title</th>
     <th>Author</th>
     <th id="opencolumn">Open</th>
     <th id="relatedcolumn">Related</th>
   </tr>
-  <tr class="theses_values" *ngFor="let thesis of theses">
+  <tr class="theses_values" *ngFor="let thesis of theses; let i=index">
+    <td>{{ i }}</td>
     <td id="title" (click)="thesisDetails(thesis)">{{thesis.title}}</td>
     <td id="author">
       <div *ngFor="let author of thesis.authors">

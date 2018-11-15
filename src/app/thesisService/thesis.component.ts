@@ -47,10 +47,13 @@ export class ThesisComponent implements OnInit {
 
   updateValue(id: any) {
     const idName = 'check' + id;
+    if (this.thesisFilters.exemplaryTheses === undefined) {
+      this.thesisFilters.exemplaryTheses = [];
+    }
     if ((<HTMLInputElement>document.getElementById(idName)).checked) {
-      this.thesisFilters.listOfIds.push(id);
+      this.thesisFilters.exemplaryTheses.push(id);
     } else {
-      this.thesisFilters.listOfIds = this.thesisFilters.listOfIds.filter(value => value !== id);
+      this.thesisFilters.exemplaryTheses = this.thesisFilters.exemplaryTheses.filter(value => value !== id);
     }
   }
 

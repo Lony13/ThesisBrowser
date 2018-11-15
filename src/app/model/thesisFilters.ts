@@ -8,7 +8,7 @@ export class ThesisFilters {
   public institution: string;
   public keyWords: string;
   public quotationNumber: number;
-  public listOfIds: number[];
+  public exemplaryTheses: number[];
 
   get getAuthor(): string {
     return this.author;
@@ -80,5 +80,13 @@ export class ThesisFilters {
 
   set setQuotationNumber(value: number) {
     this.quotationNumber = value;
+  }
+
+  get getExemplaryTheses(): number[] {
+    return this.exemplaryTheses;
+  }
+
+  set setExemplaryTheses(value: number[]) {
+    this.exemplaryTheses = value;
   }
 }
