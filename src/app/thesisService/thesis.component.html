@@ -38,11 +38,12 @@
          title="Type in quotation number" [(ngModel)]="thesisFilters.quotationNumber">
 </div>
 <div class="buttons filterbtn">
-  <button id="buttonSearch" (click)="filterTheses()">Filter theses</button>
+  <button id="buttonSearch" (click)="filterTheses()">Filter papers</button>
 </div>
 <div class="buttons relatedtheses-btn">
   <button class="related-theses" (click)="relatedTheses()">Show related</button>
 </div>
+<div class="loader" id="loadingCircle"></div>
 <table id="thesisTable">
   <tr>
     <th id="table-no">No.</th>
