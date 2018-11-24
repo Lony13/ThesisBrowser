@@ -5,22 +5,35 @@
 <body>
 
 <div class="filters">
+  <p class="label-title">Author</p>
   <input class="input label" type="text" id="authorSearch" placeholder="Search for author..." title="Type in a name"
          [(ngModel)]="thesisFilters.author">
   <div>
+    <p class="label-title">Position From</p>
     <input class="input half-label" type="number" id="positionFrom" placeholder="Position from..." title="Type a number"
-           [(ngModel)]="thesisFilters.positionFrom">
+    [(ngModel)]="thesisFilters.positionFrom">
+    <p class="label-title">Position To</p>
     <input class="input half-label" type="number" id="positionTo" placeholder="Position to..." title="Type a number"
            [(ngModel)]="thesisFilters.positionTo">
+    <br>
+    <p class="label-title label-block">Date From</p>
     <select title="Date from..." class="input half-label" id="dateFrom"  [(ngModel)]="thesisFilters.dateFrom"></select>
+    <p class="label-title">Date To</p>
     <select title="Date to..." class="input half-label" id="dateTo"  [(ngModel)]="thesisFilters.dateTo"></select>
   </div>
+  <p class="label-title">Title</p>
   <input class="input label" type="text" id="titleSearch" placeholder="Search for title..." title="Type in a name"
          [(ngModel)]="thesisFilters.title">
+  <br>
+  <p class="label-title">Institution</p>
   <input class="input label" type="text" id="institution" placeholder="Search for institution..."
          title="Type in an institution name" [(ngModel)]="thesisFilters.institution">
+  <br>
+  <p class="label-title">Key Words</p>
   <input class="input label" type="text" id="keyWords" placeholder="Search for key words..." title="Type in key words"
          [(ngModel)]="thesisFilters.keyWords">
+  <br>
+  <p class="label-title">Quotation No.</p>
   <input class="input label" type="number" id="quotationNumber" placeholder="Search for quotation number..."
          title="Type in quotation number" [(ngModel)]="thesisFilters.quotationNumber">
 </div>
