@@ -2,7 +2,23 @@
   box-sizing: border-box;
 }
 
-.option {
+.option{
+  margin-top: 20px;
+}
+
+.refresh-topic {
+  margin-top: 40px;
+}
+
+.name-label {
+  font-weight: bold;
+  font-size: 18px;
+  width: 80px;
+  float: left;
+  margin-top: 10px;
+}
+
+.adminoptions {
   padding: 20px;
 }
 

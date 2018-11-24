@@ -6,17 +6,19 @@
   <form class="option">
     <p class="title">Download new theses</p>
     <div class="filters">
+      <span class="name-label ">Author</span>
       <input class="tb-input tb-label" name="author" type="text" id="author" placeholder="Author..." title="Type in a name"
              [(ngModel)]="authorName" #author="ngModel" required="required">
       <div *ngIf="author.invalid && (author.dirty || author.touched)"
            class="alert alert-danger">>
           Name is required.
       </div>
+      <span class="name-label">Title</span>
       <input class="tb-input tb-label" type="text" id="titleSearch" placeholder="Title..." title="Type in a name"
              [(ngModel)]="title">
       <button (click)="runDownloader()">Run</button>
     </div>
-    <div class="option">
+    <div class="refresh-topic">
       <p class="title">Refresh topic list</p>
       <button type="submit">Refresh</button>
     </div>

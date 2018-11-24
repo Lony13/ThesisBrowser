@@ -31,15 +31,19 @@ export class ThesisComponent implements OnInit {
   }
 
   filterTheses(): void {
+    this.toggleLoadingCircle('block');
     this.thesisService.getThesesWithFilters(this.thesisFilters).subscribe(theses => {
+      this.toggleLoadingCircle('none');
       this.thesisService.theses = theses;
       this.theses = theses;
     });
   }
 
   relatedTheses(): void {
+    this.toggleLoadingCircle('block');
     this.thesisService.getRelatedTheses(this.thesisFilters)
       .subscribe(theses => {
+        this.toggleLoadingCircle('none');
         this.theses = theses;
         this.thesisService.theses = theses;
       });
@@ -69,9 +73,13 @@ export class ThesisComponent implements OnInit {
     for (let year = start; year >= end; year--) {
       options += '<option>' + year + '</option>';
     }
-    const optionsFrom = '<option value="" disabled selected>Date from</option>' + options;
-    const optionsTo = '<option value="" disabled selected>Date to</option>' + options;
+    const optionsFrom = '<option value="" selected></option>' + options;
+    const optionsTo = '<option value="" selected></option>' + options;
     document.getElementById('dateFrom').innerHTML = optionsFrom;
     document.getElementById('dateTo').innerHTML = optionsTo;
+  }
+
+  toggleLoadingCircle(state: string) {
+    document.getElementById('loadingCircle').style.display = state;
   }
 }
