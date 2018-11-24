@@ -8,7 +8,7 @@ import {AdminDashboardService} from './admin-dashboard.service';
 })
 export class AdminDashboardComponent implements OnInit {
 
-  author: string;
+  authorName: string;
   title: string;
 
   constructor(private adminDashboardService: AdminDashboardService) {
@@ -18,7 +18,7 @@ export class AdminDashboardComponent implements OnInit {
   }
 
   runDownloader() {
-    this.adminDashboardService.postDownload(this.author, this.title);
+    this.adminDashboardService.postDownload(this.authorName, this.title);
   }
 
   refreshTopics() {
