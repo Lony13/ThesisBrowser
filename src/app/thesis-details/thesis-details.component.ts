@@ -27,6 +27,18 @@ export class ThesisDetailsComponent implements OnInit {
   }
 
   updateQuotations() {
-    this.thesisService.updateQuotations(this.id);
+    this.toggleLoadingCircle('block');
+    this.thesisService.updateQuotations(this.id)
+      .subscribe(value => {
+        this.thesisService.getThesisDetailsById(this.id)
+          .subscribe(details => {
+            this.thesisDetails = details;
+          });
+        this.toggleLoadingCircle('none');
+      });
+  }
+
+  toggleLoadingCircle(state: string) {
+    document.getElementById('loadingCircle').style.display = state;
   }
 }

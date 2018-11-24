@@ -57,7 +57,9 @@ export class ThesisService {
   }
 
   updateQuotations(id: number) {
-    return this.http.get<number>(AppSettings.API_ENDPOINT + this.updateQuotationsUrl).pipe(
+    let url = AppSettings.API_ENDPOINT + this.updateQuotationsUrl;
+    url = `${url}/?thesisId=${id}`;
+    return this.http.get<number>(url).pipe(
       catchError(this.handleError<number>(`updateQuotations id=${id}`))
     );
   }
