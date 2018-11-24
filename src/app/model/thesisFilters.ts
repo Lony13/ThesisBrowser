@@ -2,12 +2,13 @@ export class ThesisFilters {
   public author: string;
   public positionFrom: number;
   public positionTo: number;
-  public dateFrom: Date;
-  public dateTo: Date;
+  public dateFrom: number;
+  public dateTo: number;
   public title: string;
   public institution: string;
   public keyWords: string;
   public quotationNumber: number;
+  public exemplaryTheses: number[];
 
   get getAuthor(): string {
     return this.author;
@@ -33,19 +34,19 @@ export class ThesisFilters {
     this.positionTo = value;
   }
 
-  get getDateFrom(): Date {
+  get getDateFrom(): number {
     return this.dateFrom;
   }
 
-  set setDateFrom(value: Date) {
+  set setDateFrom(value: number) {
     this.dateFrom = value;
   }
 
-  get getDateTo(): Date {
+  get getDateTo(): number {
     return this.dateTo;
   }
 
-  set setDateTo(value: Date) {
+  set setDateTo(value: number) {
     this.dateTo = value;
   }
 
@@ -79,5 +80,13 @@ export class ThesisFilters {
 
   set setQuotationNumber(value: number) {
     this.quotationNumber = value;
+  }
+
+  get getExemplaryTheses(): number[] {
+    return this.exemplaryTheses;
+  }
+
+  set setExemplaryTheses(value: number[]) {
+    this.exemplaryTheses = value;
   }
 }

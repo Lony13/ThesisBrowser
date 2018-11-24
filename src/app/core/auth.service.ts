@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {HttpClient} from '@angular/common/http';
-import {AppModule} from '../app.module';
+import {AppSettings} from '../app.settings';
 
 @Injectable()
 export class AuthService {
@@ -11,7 +11,7 @@ export class AuthService {
 
   attemptAuth(username: string, password: string): Observable<any> {
     const credentials = {username: username, password: password};
-    return this.http.post<any>(AppModule.API_ENDPOINT + '/token/generate-token', credentials);
+    return this.http.post<any>(AppSettings.API_ENDPOINT + '/token/generate-token', credentials);
   }
 
 }

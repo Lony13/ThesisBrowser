@@ -2,17 +2,26 @@
 
 <app-horizontal-menu></app-horizontal-menu>
 
-<div class="option">
-  <p class="title">Download new theses</p>
-  <div class="filters">
-    <input class="input label" type="text" id="authorSearch" placeholder="Author..." title="Type in a name"
-           [(ngModel)]="author">
-    <input class="input label" type="text" id="titleSearch" placeholder="Title..." title="Type in a name"
-           [(ngModel)]="title">
-    <button (click)="runDownloader()">Run</button>
-  </div>
+<div class="adminoptions">
+  <form class="option">
+    <p class="title">Download new theses</p>
+    <div class="filters">
+      <input class="tb-input tb-label" name="author" type="text" id="author" placeholder="Author..." title="Type in a name"
+             [(ngModel)]="authorName" #author="ngModel" required="required">
+      <div *ngIf="author.invalid && (author.dirty || author.touched)"
+           class="alert alert-danger">>
+          Name is required.
+      </div>
+      <input class="tb-input tb-label" type="text" id="titleSearch" placeholder="Title..." title="Type in a name"
+             [(ngModel)]="title">
+      <button (click)="runDownloader()">Run</button>
+    </div>
+    <div class="option">
+      <p class="title">Refresh topic list</p>
+      <button type="submit">Refresh</button>
+    </div>
+  </form>
 </div>
-<div class="option">
-  <p class="title">Refresh topic list</p>
-  <button (click)="refreshTopics()">Refresh</button>
+<div class="infowindow">
+  <app-info-window></app-info-window>
 </div>

@@ -18,6 +18,7 @@ import {SidebarComponent} from './sidebar/sidebar.component';
 import {ThesisDetailsComponent} from './thesis-details/thesis-details.component';
 import {AuthGuard} from './core/authGuard';
 import {HorizontalMenuComponent} from './horizontal-menu/horizontal-menu.component';
+import {InfoWindowComponent} from './info-window/info-window.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeDashboardComponent},
@@ -36,7 +37,8 @@ const routes: Routes = [
     AdminDashboardComponent,
     SidebarComponent,
     ThesisDetailsComponent,
-    HorizontalMenuComponent
+    HorizontalMenuComponent,
+    InfoWindowComponent
   ],
   imports: [
     BrowserModule,
@@ -56,5 +58,4 @@ const routes: Routes = [
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  public static API_ENDPOINT = 'http://localhost:8080';
 }

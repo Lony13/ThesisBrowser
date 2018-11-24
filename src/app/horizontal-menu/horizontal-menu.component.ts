@@ -20,6 +20,6 @@ export class HorizontalMenuComponent implements OnInit {
 
   logout() {
     this.token.signOut();
-    this.router.navigate(['home']);
+    this.router.navigate(['login']);
   }
 }

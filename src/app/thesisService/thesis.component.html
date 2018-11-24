@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+<head>
+</head>
 <body>
 
 <div class="filters">
@@ -10,10 +12,8 @@
            [(ngModel)]="thesisFilters.positionFrom">
     <input class="input half-label" type="number" id="positionTo" placeholder="Position to..." title="Type a number"
            [(ngModel)]="thesisFilters.positionTo">
-    <input class="input half-label" type="date" id="dateFrom" placeholder="From..." title="Type a date"
-           [(ngModel)]="thesisFilters.dateFrom">
-    <input class="input half-label" type="date" id="dateTo" placeholder="To..." title="Type a date"
-           [(ngModel)]="thesisFilters.dateTo">
+    <select title="Date from..." class="input half-label" id="dateFrom"  [(ngModel)]="thesisFilters.dateFrom"></select>
+    <select title="Date to..." class="input half-label" id="dateTo"  [(ngModel)]="thesisFilters.dateTo"></select>
   </div>
   <input class="input label" type="text" id="titleSearch" placeholder="Search for title..." title="Type in a name"
          [(ngModel)]="thesisFilters.title">
@@ -24,26 +24,34 @@
   <input class="input label" type="number" id="quotationNumber" placeholder="Search for quotation number..."
          title="Type in quotation number" [(ngModel)]="thesisFilters.quotationNumber">
 </div>
-<div class="buttons">
+<div class="buttons filterbtn">
   <button id="buttonSearch" (click)="filterTheses()">Filter theses</button>
+</div>
+<div class="buttons relatedtheses-btn">
+  <button class="related-theses" (click)="relatedTheses()">Show related</button>
 </div>
 <table id="thesisTable">
   <tr>
+    <th id="table-no">No.</th>
     <th>Title</th>
-    <th>Author</th>
-    <th>Open</th>
-    <th>Related theses</th>
+    <th>Authors</th>
+    <th id="opencolumn">Open</th>
+    <th id="relatedcolumn">Related</th>
   </tr>
-  <tr class="theses_values" *ngFor="let thesis of theses">
+  <tr class="theses_values" *ngFor="let thesis of theses; let i=index">
+    <td>{{ i }}</td>
     <td id="title" (click)="thesisDetails(thesis)">{{thesis.title}}</td>
     <td id="author">
       <div *ngFor="let author of thesis.authors">
-        {{ author.name }}
+        {{ author }}
       </div>
     </td>
-    <td id="link"><a href="{{thesis.linkToPDF}}">Link</a></td>
+    <td id="link"><a id="linktopdf" href="{{thesis.linkToPDF}}" target="_blank">Link</a></td>
     <td id="relatedTheses">
-      <button class="related-theses">Show</button>
+      <div class="material-switch pull-right">
+        <input id="check{{thesis.id}}" name="checkbox-related-theses" type="checkbox" (change)="updateValue(thesis.id)"/>
+        <label for="check{{thesis.id}}" class="label-primary"></label>
+      </div>
     </td>
   </tr>
 </table>

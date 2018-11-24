@@ -5,19 +5,21 @@ import {Observable, of} from 'rxjs';
 import {catchError, map, tap} from 'rxjs/operators';
 
 import {Thesis} from '../model/thesis';
-import {AppModule} from '../app.module';
 import {ThesisDetails} from '../model/thesisDetails';
 import {ThesisFilters} from '../model/thesisFilters';
+import {AppSettings} from '../app.settings';
 
 @Injectable({providedIn: 'root'})
 export class ThesisService {
 
-  public thesisId: number;
+  public id: number;
 
   private thesesUrl = '/api/theses';
   private detailsUrl = '/api/theses/details/';
   private searchUrl = '/api/theses/search';
   private updateQuotationsUrl = '/thesis/quotation/updates';
+  private relatedThesesUrl = '/api/theses/similar';
+
 
   public theses: ThesisDetails[];
 
@@ -25,29 +27,37 @@ export class ThesisService {
   }
 
   getTheses(): Observable<ThesisDetails[]> {
-    return this.http.get<ThesisDetails[]>(AppModule.API_ENDPOINT + this.thesesUrl)
+    return this.http.get<ThesisDetails[]>(AppSettings.API_ENDPOINT + this.thesesUrl)
       .pipe(
         catchError(this.handleError('getTheses', []))
       );
   }
 
   getThesisDetailsById(id: number): Observable<ThesisDetails> {
-    const url = AppModule.API_ENDPOINT + this.detailsUrl + `${id}`;
+    const url = AppSettings.API_ENDPOINT + this.detailsUrl + `${id}`;
     return this.http.get<ThesisDetails>(url).pipe(
       catchError(this.handleError<ThesisDetails>(`getThesis id=${id}`))
     );
   }
 
   getThesesWithFilters(filters: ThesisFilters): Observable<ThesisDetails[]> {
-    const url = AppModule.API_ENDPOINT + `${this.searchUrl}`;
+    const url = AppSettings.API_ENDPOINT + `${this.searchUrl}`;
     return this.http.post<ThesisDetails[]>(url, filters)
       .pipe(
         catchError(this.handleError('getThesesWithFilters', []))
       );
   }
 
+  getRelatedTheses(thesisFilters: ThesisFilters): Observable<ThesisDetails[]> {
+    const url = AppSettings.API_ENDPOINT + this.relatedThesesUrl;
+    return this.http.post<ThesisDetails[]>(url, thesisFilters)
+      .pipe(
+        catchError(this.handleError('getRelatedTheses', []))
+      );
+  }
+
   updateQuotations(id: number) {
-    return this.http.get<number>(AppModule.API_ENDPOINT + this.updateQuotationsUrl).pipe(
+    return this.http.get<number>(AppSettings.API_ENDPOINT + this.updateQuotationsUrl).pipe(
       catchError(this.handleError<number>(`updateQuotations id=${id}`))
     );
   }

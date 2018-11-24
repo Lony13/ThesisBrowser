@@ -14,12 +14,12 @@ export class ThesisDetailsComponent implements OnInit {
               private thesisService: ThesisService) {
   }
 
-  thesisId: number;
+  id: number;
   thesisDetails: ThesisDetails;
 
   ngOnInit() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.thesisId = id != null ? id : this.thesisId;
+    this.id = id != null ? id : this.id;
     this.thesisService.getThesisDetailsById(id)
       .subscribe(details => {
         this.thesisDetails = details;
@@ -27,6 +27,6 @@ export class ThesisDetailsComponent implements OnInit {
   }
 
   updateQuotations() {
-    this.thesisService.updateQuotations(this.thesisId);
+    this.thesisService.updateQuotations(this.id);
   }
 }
