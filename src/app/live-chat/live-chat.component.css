@@ -87,3 +87,9 @@
   width: 300px;
   display: inline-block;
 }
+
+#send-info {
+  color: green;
+  margin-left: 55px;
+  display: none;
+}

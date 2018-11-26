@@ -9,12 +9,13 @@
     <div>
       <div class="panel-footer">
         <div class="input-group">
-          <textarea id="btn-input"></textarea>
+          <textarea [(ngModel)]="content" id="btn-input"></textarea>
         </div>
-        <input id="nickname" type="text" class="form-control input-sm tb-input-nickname" placeholder="Type your nickname..." />
+        <input [(ngModel)]="nickname" id="nickname" type="text" class="form-control input-sm tb-input-nickname" placeholder="Type your nickname..." />
         <span class="input-group-btn">
-          <button class="btn btn-warning btn-sm" id="btn-chat">Send</button>
+          <button (click)="sendMessage()" class="btn btn-warning btn-sm" id="btn-chat">Send</button>
         </span>
+        <span id="send-info">Message sent</span>
       </div>
     </div>
   </div>
