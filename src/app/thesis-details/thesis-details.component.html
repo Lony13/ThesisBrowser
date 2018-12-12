@@ -6,6 +6,9 @@
 <body>
 <app-horizontal-menu></app-horizontal-menu>
 
+<div class="livechat">
+  <app-live-chat></app-live-chat>
+</div>
 <div class="container">
   <div class="row details-container">
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
@@ -27,35 +30,54 @@
                     </span>
                   </td>
                 </tr>
-                <tr *ngIf="thesisDetails.publicationDate">
+                <tr>
                   <td>Publication date</td>
-                  <td>{{thesisDetails.publicationDate}}</td>
+                  <td *ngIf="thesisDetails.publicationDate; else emptyPublicationDate">
+                    {{thesisDetails.publicationDate}}
+                  </td>
+                  <ng-template #emptyPublicationDate>
+                    <td>Not found</td>
+                  </ng-template>
                 </tr>
-                <tr *ngIf="thesisDetails.keyWords">
+                <tr>
                   <td>List of key words</td>
-                  <td>
+                  <td *ngIf="thesisDetails.keyWords; else emptyKeyWords">
                     <span *ngFor="let word of thesisDetails.keyWords">
                       {{ word }}<br>
                     </span>
                   </td>
+                  <ng-template #emptyKeyWords>
+                    <td>Not found</td>
+                  </ng-template>
                 </tr>
-                <tr *ngIf="thesisDetails.relatedTheses">
+                <tr>
                   <td>List of releted papers</td>
-                  <td>
+                  <td *ngIf="thesisDetails.relatedTheses != undefined && thesisDetails.relatedTheses.length > 1; else emptyRelatedTheses">
                     <span *ngFor="let thesis of thesisDetails.relatedTheses">
                       {{ thesis }}<br>
                     </span>
                   </td>
+                  <ng-template #emptyRelatedTheses>
+                    <td>Not found</td>
+                  </ng-template>
                 </tr>
-                <tr *ngIf="thesisDetails.citationNo">
+                <tr>
                   <td>Citation number</td>
-                  <td>{{thesisDetails.citationNo}}</td>
+                  <td *ngIf="thesisDetails.citationNo; else emptyCitationNo">
+                    {{thesisDetails.citationNo}}
+                  </td>
+                  <ng-template #emptyCitationNo>
+                    <td>Not found</td>
+                  </ng-template>
                 </tr>
-                <tr *ngIf="thesisDetails.linkToPDF">
+                <tr>
                   <td>Link to PDF</td>
-                  <td>
+                  <td *ngIf="thesisDetails.linkToPDF; else emptyLinkToPdf">
                     <a href="{{ thesisDetails.linkToPDF }}" target="_blank">{{ thesisDetails.linkToPDF }}</a>
                   </td>
+                  <ng-template #emptyLinkToPdf>
+                    <td>Not found</td>
+                  </ng-template>
                 </tr>
                 </tbody>
               </table>
@@ -65,11 +87,11 @@
           </div>
         </div>
         <!--<div class="panel-footer">-->
-          <!--<a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>-->
-          <!--<span class="pull-right">-->
-                            <!--<a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>-->
-                            <!--<a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>-->
-                        <!--</span>-->
+        <!--<a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>-->
+        <!--<span class="pull-right">-->
+        <!--<a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>-->
+        <!--<a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>-->
+        <!--</span>-->
         <!--</div>-->
         <div class="loader" id="loadingCircle"></div>
       </div>

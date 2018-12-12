@@ -19,6 +19,7 @@ import {ThesisDetailsComponent} from './thesis-details/thesis-details.component'
 import {AuthGuard} from './core/authGuard';
 import {HorizontalMenuComponent} from './horizontal-menu/horizontal-menu.component';
 import {InfoWindowComponent} from './info-window/info-window.component';
+import {LiveChatComponent} from './live-chat/live-chat.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeDashboardComponent},
@@ -38,7 +39,8 @@ const routes: Routes = [
     SidebarComponent,
     ThesisDetailsComponent,
     HorizontalMenuComponent,
-    InfoWindowComponent
+    InfoWindowComponent,
+    LiveChatComponent
   ],
   imports: [
     BrowserModule,
